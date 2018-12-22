@@ -21,4 +21,5 @@ storiesOf("Components/UserListItem", module)
     </IntlProvider>
   ))
   .add("Desktop", () => <UserListItem data={data} />)
+  .add("Desktop without data", () => <UserListItem />)
   .add("Mobile", () => <UserListItem data={data} width="xs" />);

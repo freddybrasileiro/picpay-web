@@ -2,11 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Avatar, Typography, withWidth } from "@material-ui/core";
 
-/*
-import Error from "components/UserListItem/Error";
-import Loader from "components/UserListItem/Loader";
-import NoDataInPastMessage from "components/UserListItem/NoDataInPastMessage";
-*/
 import Root from "components/UserListItem/Root";
 import StyledUserData from "components/UserListItem/StyledUserData";
 import StyledUserDataDetails from "components/UserListItem/StyledUserDataDetails";
@@ -34,9 +29,11 @@ const UserListItem = ({ data, width }) => (
         {data.name}
       </Typography>
       <StyledUserDataDetails>
-        <Typography component="p" variant="display3">
-          id: {data.id}
-        </Typography>
+        {!!data.id && (
+          <Typography component="p" variant="display3">
+            id: {data.id}
+          </Typography>
+        )}
         <Typography component="p" variant="display3">
           {data.username}
         </Typography>
@@ -46,9 +43,20 @@ const UserListItem = ({ data, width }) => (
   </Root>
 );
 
-const propTypes = {};
+const propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    img: PropTypes.string,
+    id: PropTypes.number,
+    username: PropTypes.string
+  }),
+  width: PropTypes.string
+};
 
-const defaultProps = {};
+const defaultProps = {
+  data: {},
+  width: "xs"
+};
 
 UserListItem.propTypes = propTypes;
 UserListItem.defaultProps = defaultProps;
