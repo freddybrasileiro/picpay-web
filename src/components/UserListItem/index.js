@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Avatar, Typography, withWidth } from "@material-ui/core";
+import { Avatar, Typography, withStyles, withWidth } from "@material-ui/core";
 
 import Root from "components/UserListItem/Root";
 import StyledUserData from "components/UserListItem/StyledUserData";
@@ -8,7 +8,7 @@ import StyledUserDataDetails from "components/UserListItem/StyledUserDataDetails
 
 import PayButton from "components/PayButton";
 
-const avatarStyle = {
+const styles = {
   big: {
     width: 40,
     height: 40,
@@ -21,9 +21,9 @@ const avatarStyle = {
   }
 };
 
-const UserListItem = ({ data, width }) => (
+const UserListItem = ({ data, width, classes }) => (
   <Root width={width}>
-    <Avatar alt={data.name} src={data.img} className={avatarStyle.big} />
+    <Avatar alt={data.name} src={data.img} className={classes.big} />
     <StyledUserData>
       <Typography component="p" variant="display1">
         {data.name}
@@ -61,4 +61,4 @@ const defaultProps = {
 UserListItem.propTypes = propTypes;
 UserListItem.defaultProps = defaultProps;
 
-export default withWidth()(UserListItem);
+export default withStyles(styles)(withWidth()(UserListItem));

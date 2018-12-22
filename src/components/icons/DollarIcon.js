@@ -4,8 +4,8 @@ export default props => (
   <svg x={0} y={0} viewBox="0 0 32 32" xmlSpace="preserve" {...props}>
     <defs>
       <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
-        <stop offset="0%" stop-color="#B4F4E5" />
-        <stop offset="100%" stop-color="#7DE6C6" />
+        <stop offset="0%" stopColor="#B4F4E5" />
+        <stop offset="100%" stopColor="#7DE6C6" />
       </linearGradient>
     </defs>
     <path
