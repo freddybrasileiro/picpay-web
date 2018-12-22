@@ -1,0 +1,6 @@
+export default {
+  id: 1001,
+  name: "Eduardo Santos",
+  img: "https://randomuser.me/api/portraits/men/9.jpg",
+  username: "@eduardo.santos"
+};
