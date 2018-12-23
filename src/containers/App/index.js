@@ -1,32 +1,18 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React from "react";
+import Grid from "@material-ui/core/Grid";
 
-import { getUsers as doGetUsers } from "modules/Users/actions";
-
+import Toolbar from "components/Toolbar/";
 import UsersList from "containers/UsersList/";
 
-class App extends Component {
-  render() {
-    return <UsersList />;
-  }
-}
+const App = () => (
+  <Grid container justify="center" direction="row">
+    <Grid item xs={12} md={12}>
+      <Toolbar />
+    </Grid>
+    <Grid item xs={12} md={6}>
+      <UsersList />
+    </Grid>
+  </Grid>
+);
 
-const propTypes = {};
-
-const defaultProps = {};
-
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
-
-const mapDispatchToProps = dispatch => ({
-  getUsers: () => dispatch(doGetUsers()),
-  dispatch
-});
-
-const mapStateToProps = createStructuredSelector({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
