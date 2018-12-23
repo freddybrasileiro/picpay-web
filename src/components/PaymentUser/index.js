@@ -2,11 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Avatar, Typography, withStyles, withWidth } from "@material-ui/core";
 
-import Root from "components/UserListItem/Root";
-import StyledUserData from "components/UserListItem/StyledUserData";
-import StyledUserDataDetails from "components/UserListItem/StyledUserDataDetails";
-
-import GoToPayment from "components/GoToPayment";
+import Root from "components/PaymentUser/Root";
+import StyledUserData from "components/PaymentUser/StyledUserData";
+import StyledUserDataDetails from "components/PaymentUser/StyledUserDataDetails";
 
 const styles = {
   big: {
@@ -21,25 +19,24 @@ const styles = {
   }
 };
 
-const UserListItem = ({ data, width, classes }) => (
+const PaymentUser = ({ data, width, classes }) => (
   <Root width={width}>
     <Avatar alt={data.name} src={data.img} className={classes.big} />
     <StyledUserData>
-      <Typography component="p" variant="display1">
+      <Typography component="p" variant="display4">
         {data.name}
       </Typography>
       <StyledUserDataDetails>
         {!!data.id && (
-          <Typography component="p" variant="display3">
+          <Typography component="p" variant="headline">
             id: {data.id}
           </Typography>
         )}
-        <Typography component="p" variant="display3">
+        <Typography component="p" variant="headline">
           {data.username}
         </Typography>
       </StyledUserDataDetails>
     </StyledUserData>
-    <GoToPayment width={width} />
   </Root>
 );
 
@@ -58,7 +55,7 @@ const defaultProps = {
   width: "xs"
 };
 
-UserListItem.propTypes = propTypes;
-UserListItem.defaultProps = defaultProps;
+PaymentUser.propTypes = propTypes;
+PaymentUser.defaultProps = defaultProps;
 
-export default withStyles(styles)(withWidth()(UserListItem));
+export default withStyles(styles)(withWidth()(PaymentUser));

@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { Typography, withWidth } from "@material-ui/core";
 import { Padding } from "styled-components-spacing";
 
-import Root from "components/PayButton/Root";
+import Root from "components/GoToPayment/Root";
 
 import DollarIcon from "components/icons/DollarIcon";
 import RightArrow from "components/icons/RightArrow";
 
-const PayButton = ({ width }) => (
+const GoToPayment = ({ width }) => (
   <Root width={width}>
     <DollarIcon width="16" height="16" />
     <Padding right={1} />
@@ -32,7 +32,7 @@ const defaultProps = {
   width: "xl"
 };
 
-PayButton.propTypes = propTypes;
-PayButton.defaultProps = defaultProps;
+GoToPayment.propTypes = propTypes;
+GoToPayment.defaultProps = defaultProps;
 
-export default withWidth()(PayButton);
+export default withWidth()(GoToPayment);

@@ -6,10 +6,10 @@ import { IntlProvider } from "react-intl";
 import styledComponentsTheme from "styledComponentsTheme";
 import { DEFAULT_LOCALE, translationMessages } from "i18n";
 
-import UsersList from "components/UsersList";
-import data from "components/__fixtures__/users.fixture";
+import PaymentUser from "components/PaymentUser";
+import data from "components/__fixtures__/user.fixture";
 
-storiesOf("Components/UsersList", module)
+storiesOf("Components/PaymentUser", module)
   .addDecorator(story => (
     <IntlProvider
       locale={DEFAULT_LOCALE}
@@ -20,7 +20,4 @@ storiesOf("Components/UsersList", module)
       </ThemeProvider>
     </IntlProvider>
   ))
-  .add("Desktop", () => <UsersList data={data} />)
-  .add("Desktop without data", () => <UsersList />)
-  .add("Desktop error", () => <UsersList hasError={true} />)
-  .add("Desktop loading", () => <UsersList isLoading={true} />);
+  .add("Default", () => <PaymentUser data={data} />);

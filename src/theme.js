@@ -3,7 +3,9 @@ import pxToRem from "utils/pxToRem";
 
 export const palette = {
   general: {
-    white: "#ffffff"
+    white: "#ffffff",
+    duskTow: "#474971",
+    mediumPink: "#ef5778"
   },
   feedbacks: { success: "#57b45b", error: "#d50000" },
   primary: {
@@ -56,8 +58,19 @@ export default createMuiTheme({
     display3: {
       ...defaultTypography,
       fontSize: pxToRem(7),
+      fontWeight: "normal"
+    },
+    display4: {
+      ...defaultTypography,
+      fontSize: pxToRem(14),
+      fontWeight: "bold",
+      color: palette.general.duskTow
+    },
+    headline: {
+      ...defaultTypography,
+      fontSize: pxToRem(7),
       fontWeight: "normal",
-      color: palette.general.white
+      color: palette.general.duskTow
     }
   },
   palette

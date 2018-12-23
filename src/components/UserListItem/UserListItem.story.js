@@ -7,7 +7,7 @@ import styledComponentsTheme from "styledComponentsTheme";
 import { DEFAULT_LOCALE, translationMessages } from "i18n";
 
 import UserListItem from "components/UserListItem";
-import data from "components/UserListItem/__fixtures__/data.fixture";
+import data from "components/__fixtures__/user.fixture";
 
 storiesOf("Components/UserListItem", module)
   .addDecorator(story => (

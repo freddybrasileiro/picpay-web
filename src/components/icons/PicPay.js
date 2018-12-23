@@ -10,7 +10,7 @@ export default props => (
     xmlSpace="preserve"
     {...props}
   >
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
       <text
         fill="#474971"
         fontFamily="Montserrat-Medium, Montserrat"
