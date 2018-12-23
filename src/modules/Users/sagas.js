@@ -1,19 +1,28 @@
-import { take, call } from "redux-saga/effects";
+import { take, call, put } from "redux-saga/effects";
 
+import {
+  getUsersSuccess,
+  getUsersError,
+  showLoader,
+  hideLoader
+} from "./actions";
 import { GET_USERS } from "./constants";
+import { getUsers } from "./services";
 
-export function* getUsers() {
+export function* getUsersSaga() {
   try {
-    debugger;
+    yield put(showLoader());
+    const users = yield call(getUsers);
+    yield put(getUsersSuccess(users));
   } catch (e) {
-    debugger;
+    yield put(getUsersError());
   } finally {
-    debugger;
+    yield put(hideLoader());
   }
 }
 
 export function* getUsersWatcher() {
   while (yield take(GET_USERS)) {
-    yield call(getUsers);
+    yield call(getUsersSaga);
   }
 }

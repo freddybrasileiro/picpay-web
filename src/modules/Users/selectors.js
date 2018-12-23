@@ -1,7 +1,10 @@
 import { createSelector } from "reselect";
 
-const selectData = () => state => state.users || {};
+const selectData = () => state => state || {};
 
-const selectContract = () => createSelector(selectData(), data => data.data);
+const selectUsers = () => createSelector(selectData(), data => data.users);
+const selectIsLoading = () =>
+  createSelector(selectData(), data => data.loading);
+const selectHasError = () => createSelector(selectData(), data => data.error);
 
-export { selectContract };
+export { selectUsers, selectIsLoading, selectHasError };

@@ -6,16 +6,20 @@ import {
   SHOW_LOADER
 } from "./constants";
 
-export const usersInitialState = {};
+export const usersInitialState = {
+  users: [],
+  loading: false,
+  error: false
+};
 
-function signinReducer(state = usersInitialState, { type, payload }) {
+function signinReducer(state = usersInitialState, { type, users }) {
   switch (type) {
     case GET_USERS:
-      return { ...state, data: {} };
+      return { ...state, users: [], error: false };
     case GET_USERS_SUCCESS:
-      return { ...state, data: payload };
+      return { ...state, users, error: false };
     case GET_USERS_ERROR:
-      return { ...state, error: payload };
+      return { ...state, users: [], error: true };
     case SHOW_LOADER:
       return { ...state, loading: true };
     case HIDE_LOADER:
