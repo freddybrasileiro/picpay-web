@@ -14,7 +14,9 @@ const UsersList = ({ data }) => (
 );
 
 const propTypes = {
-  data: PropTypes.array
+  data: PropTypes.array,
+  isLoading: PropTypes.bool,
+  hasError: PropTypes.bool
 };
 
 const defaultProps = {

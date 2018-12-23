@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export default styled.section`
   display: flex;
-  width: 100%;
   flex-grow: 1;
   height: 40px;
   box-shadow: 0 0.5px 0 0 #ffffff, 0 -0.5px 0 0 #ffffff;

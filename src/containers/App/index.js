@@ -4,13 +4,11 @@ import { createStructuredSelector } from "reselect";
 
 import { getUsers as doGetUsers } from "modules/Users/actions";
 
-class App extends Component {
-  componentDidMount() {
-    this.props.getUsers();
-  }
+import UsersList from "containers/UsersList/";
 
+class App extends Component {
   render() {
-    return <div>teste</div>;
+    return <UsersList />;
   }
 }
 

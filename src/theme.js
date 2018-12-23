@@ -56,7 +56,8 @@ export default createMuiTheme({
     display3: {
       ...defaultTypography,
       fontSize: pxToRem(7),
-      fontWeight: "normal"
+      fontWeight: "normal",
+      color: palette.general.white
     }
   },
   palette

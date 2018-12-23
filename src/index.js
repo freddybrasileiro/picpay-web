@@ -12,6 +12,11 @@ import { Provider } from "react-redux";
 import reducer from "modules/Users/reducer";
 import { getUsersWatcher } from "modules/Users/sagas";
 
+import { ThemeProvider } from "styled-components";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import theme from "theme";
+import styledComponentsTheme from "styledComponentsTheme";
+
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -33,7 +38,11 @@ sagaMiddleware.run(getUsersWatcher);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ThemeProvider theme={styledComponentsTheme}>
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
+    </ThemeProvider>
   </Provider>,
   document.getElementById("root")
 );
