@@ -12,7 +12,8 @@ import { withStyles } from "@material-ui/core";
 
 import Root from "./Root";
 import Close from "components/icons/Close";
-import Payment from "components/Payment";
+
+import Payment from "containers/Payment";
 
 import { closeDialog as doCloseDialog } from "modules/Payment/actions";
 import { DIALOG_SCREENS } from "modules/Payment/constants";
