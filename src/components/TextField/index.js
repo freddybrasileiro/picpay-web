@@ -28,7 +28,9 @@ const styles = theme => ({
       color: "#7de6c6"
     }
   },
-  cssFocused: {},
+  cssFocused: {
+    color: "#474971 !important"
+  },
   cssFocusedMobile: {
     color: "#7de6c6 !important"
   },
