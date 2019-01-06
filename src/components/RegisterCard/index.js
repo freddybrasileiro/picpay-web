@@ -47,7 +47,7 @@ const brands = [
   }
 ];
 
-const RegisterCard = ({ classes, width }) => {
+const RegisterCard = ({ classes, width, onChange, selectValue }) => {
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <Root>
@@ -84,9 +84,15 @@ const RegisterCard = ({ classes, width }) => {
   );
 };
 
-const propTypes = {};
+const propTypes = {
+  onChange: PropTypes.func,
+  selectValue: PropTypes.func
+};
 
-const defaultProps = {};
+const defaultProps = {
+  onChange: () => {},
+  selectValue: () => {}
+};
 
 RegisterCard.propTypes = propTypes;
 RegisterCard.defaultProps = defaultProps;

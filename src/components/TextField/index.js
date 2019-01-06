@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles, withWidth } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 
 import MenuItem from "@material-ui/core/MenuItem";
 import TextFieldMaterialUi from "@material-ui/core/TextField";
@@ -29,15 +29,7 @@ const styles = theme => ({
   }
 });
 
-const TextField = ({
-  classes,
-  id,
-  select = false,
-  label,
-  value,
-  items = [],
-  onChange
-}) => (
+const TextField = ({ classes, id, select, label, value, items, onChange }) => (
   <TextFieldMaterialUi
     id={id}
     select={select}
@@ -72,9 +64,23 @@ const TextField = ({
   </TextFieldMaterialUi>
 );
 
-const propTypes = {};
+const propTypes = {
+  id: PropTypes.string,
+  select: PropTypes.bool,
+  label: PropTypes.string,
+  value: PropTypes.string,
+  items: PropTypes.array,
+  onChange: PropTypes.func
+};
 
-const defaultProps = {};
+const defaultProps = {
+  id: "",
+  select: false,
+  label: "",
+  value: "",
+  items: [],
+  onChange: () => {}
+};
 
 TextField.propTypes = propTypes;
 TextField.defaultProps = defaultProps;

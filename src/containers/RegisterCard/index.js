@@ -13,7 +13,7 @@ import {
 } from "modules/Payment/selectors";
 */
 
-const RegisterCardContainer = ({}) => <RegisterCard />;
+const RegisterCardContainer = () => <RegisterCard />;
 
 const propTypes = {};
 
