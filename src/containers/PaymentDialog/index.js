@@ -49,6 +49,9 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog }) => {
     case DIALOG_SCREENS.PAYMENT:
       content = <Payment />;
       break;
+    case DIALOG_SCREENS.REGISTER_CARD:
+      content = <div>aaa</div>;
+      break;
     default:
       content = <div />;
   }

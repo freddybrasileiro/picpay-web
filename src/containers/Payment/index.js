@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 
 import Payment from "components/Payment";
 
-//import { closeDialog as doCloseDialog } from "modules/Payment/actions";
+import { goToRegisterCard as doGoToRegisterCard } from "modules/Payment/actions";
 import { selectPaymentUser } from "modules/Payment/selectors";
 import { selectUsers } from "modules/Users/selectors";
 
@@ -21,7 +21,11 @@ class PaymentContainer extends Component {
   }
 
   render() {
-    return <Payment data={this.state.userData} />;
+    const { goToRegisterCard } = this.props;
+
+    return (
+      <Payment data={this.state.userData} goToRegisterCard={goToRegisterCard} />
+    );
   }
 }
 
@@ -38,7 +42,7 @@ PaymentContainer.propTypes = propTypes;
 PaymentContainer.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch => ({
-  //closeDialog: () => dispatch(doCloseDialog()),
+  goToRegisterCard: () => dispatch(doGoToRegisterCard()),
   dispatch
 });
 

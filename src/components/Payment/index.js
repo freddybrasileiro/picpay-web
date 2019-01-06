@@ -22,7 +22,14 @@ const styles = () => ({
   }
 });
 
-const Payment = ({ data, cards, selectedCard, width, classes }) => (
+const Payment = ({
+  data,
+  cards,
+  selectedCard,
+  width,
+  classes,
+  goToRegisterCard
+}) => (
   <Root width={width}>
     <Padding bottom={2} />
     <PaymentUser data={data} />
@@ -34,7 +41,7 @@ const Payment = ({ data, cards, selectedCard, width, classes }) => (
     {!!cards.length ? (
       <StyledMessagePaymentCard cardNumber={selectedCard} />
     ) : (
-      <StyledMessageNoCards />
+      <StyledMessageNoCards goToRegisterCard={goToRegisterCard} />
     )}
     <Padding bottom={2} />
     <Button variant="contained" color="primary" className={classes.button}>
