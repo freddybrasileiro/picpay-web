@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 export default styled.div`
-  min-width: 320px;
-  max-width: ${props => (props.theme.width ? "unset" : "320px")};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  button {
+    margin-top: 12px;
+  }
+
+  input {
+  }
 `;

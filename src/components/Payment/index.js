@@ -18,7 +18,10 @@ const styles = () => ({
     padding: 0,
     borderRadius: "12px",
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
-    backgroundImage: "linear-gradient(to bottom, #7de6c6, #7de6c6)"
+    backgroundImage: "linear-gradient(to bottom, #7de6c6, #7de6c6)",
+    color: "#474971",
+    fontSize: "7px",
+    fontWeight: "bold"
   },
   buttonMobile: {
     width: "100%",
@@ -27,7 +30,10 @@ const styles = () => ({
     padding: 0,
     borderRadius: "12px",
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
-    backgroundImage: "linear-gradient(to bottom, #7de6c6, #7de6c6)"
+    backgroundImage: "linear-gradient(to bottom, #7de6c6, #7de6c6)",
+    color: "#474971",
+    fontSize: "7px",
+    fontWeight: "bold"
   }
 });
 
