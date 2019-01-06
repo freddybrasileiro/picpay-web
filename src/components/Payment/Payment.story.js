@@ -8,6 +8,7 @@ import { DEFAULT_LOCALE, translationMessages } from "i18n";
 
 import Payment from "components/Payment";
 import data from "components/__fixtures__/user.fixture";
+import cards from "components/__fixtures__/cards.fixture";
 
 storiesOf("Components/Payment", module)
   .addDecorator(story => (
@@ -20,6 +21,6 @@ storiesOf("Components/Payment", module)
       </ThemeProvider>
     </IntlProvider>
   ))
-  .add("Desktop", () => <Payment data={data} />);
-//.add("Desktop without data", () => <Payment />)
-//.add("Mobile", () => <Payment data={data} width="xs" />);
+  .add("Default", () => <Payment data={data} cards={cards} />)
+  .add("Without card", () => <Payment data={data} />);
+//.add("Desktop without data", () => <Payment />);

@@ -20,6 +20,5 @@ storiesOf("Components/UserListItem", module)
       </ThemeProvider>
     </IntlProvider>
   ))
-  .add("Desktop", () => <UserListItem data={data} />)
-  .add("Desktop without data", () => <UserListItem />)
-  .add("Mobile", () => <UserListItem data={data} width="xs" />);
+  .add("Default", () => <UserListItem data={data} />)
+  .add("Without data", () => <UserListItem />);

@@ -20,7 +20,7 @@ storiesOf("Components/UsersList", module)
       </ThemeProvider>
     </IntlProvider>
   ))
-  .add("Desktop", () => <UsersList data={data} />)
-  .add("Desktop without data", () => <UsersList />)
-  .add("Desktop error", () => <UsersList hasError={true} />)
-  .add("Desktop loading", () => <UsersList isLoading={true} />);
+  .add("Default", () => <UsersList data={data} />)
+  .add("Without data", () => <UsersList />)
+  .add("Error", () => <UsersList hasError={true} />)
+  .add("Loading", () => <UsersList isLoading={true} />);

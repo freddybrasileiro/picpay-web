@@ -2,12 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles, withWidth } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import { Padding } from "styled-components-spacing";
 
 import Root from "components/Payment/Root";
 import StyledMessageNoCards from "components/Payment/StyledMessageNoCards";
+import StyledMessagePaymentCard from "components/Payment/StyledMessagePaymentCard";
 import PaymentUser from "components/PaymentUser/";
+import Divider from "components/Utils/Divider";
 
-const styles = theme => ({
+const styles = () => ({
   button: {
     width: "85%",
     height: "24px",
@@ -19,13 +22,25 @@ const styles = theme => ({
   }
 });
 
-const Payment = ({ data, width, classes }) => (
+const Payment = ({ data, cards, selectedCard, width, classes }) => (
   <Root width={width}>
+    <Padding bottom={2} />
     <PaymentUser data={data} />
-    <StyledMessageNoCards />
+    <Padding bottom={2} />
+    <div>VALOR AQUI</div>
+    <Padding bottom={3} />
+    <Divider />
+    <Padding bottom={1} />
+    {!!cards.length ? (
+      <StyledMessagePaymentCard cardNumber={selectedCard} />
+    ) : (
+      <StyledMessageNoCards />
+    )}
+    <Padding bottom={2} />
     <Button variant="contained" color="primary" className={classes.button}>
       Pagar
     </Button>
+    <Padding bottom={2} />
   </Root>
 );
 
@@ -36,11 +51,15 @@ const propTypes = {
     id: PropTypes.number,
     username: PropTypes.string
   }),
+  cards: PropTypes.array,
+  selectedCard: PropTypes.string,
   width: PropTypes.string
 };
 
 const defaultProps = {
   data: {},
+  cards: [],
+  selectedCard: "XXXX",
   width: "xs"
 };
 
