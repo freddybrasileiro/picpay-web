@@ -19,6 +19,15 @@ const styles = () => ({
     borderRadius: "12px",
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
     backgroundImage: "linear-gradient(to bottom, #7de6c6, #7de6c6)"
+  },
+  buttonMobile: {
+    width: "100%",
+    height: "24px",
+    minHeight: "24px",
+    padding: 0,
+    borderRadius: "12px",
+    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
+    backgroundImage: "linear-gradient(to bottom, #7de6c6, #7de6c6)"
   }
 });
 
@@ -44,7 +53,11 @@ const Payment = ({
       <StyledMessageNoCards goToRegisterCard={goToRegisterCard} />
     )}
     <Padding bottom={2} />
-    <Button variant="contained" color="primary" className={classes.button}>
+    <Button
+      variant="contained"
+      color="primary"
+      className={width === "xs" ? classes.buttonMobile : classes.button}
+    >
       Pagar
     </Button>
     <Padding bottom={2} />

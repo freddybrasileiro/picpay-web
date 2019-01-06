@@ -8,10 +8,11 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import { withStyles } from "@material-ui/core";
+import { withStyles, withWidth } from "@material-ui/core";
 
 import Root from "./Root";
 import Close from "components/icons/Close";
+import RightArrow from "components/icons/RightArrow";
 
 import Payment from "containers/Payment";
 
@@ -27,6 +28,9 @@ const styles = () => ({
     padding: "6px 12px",
     backgroundColor: "#474971"
   },
+  headerMobile: {
+    padding: "8px 12px 2px 12px"
+  },
   closeButton: {
     position: "absolute",
     right: "3px",
@@ -40,10 +44,14 @@ const styles = () => ({
     margin: 0,
     position: "absolute",
     top: "50px"
+  },
+  containerMobile: {
+    boxShadow: "0 0.5px 0 0 #ffffff, 0 -0.5px 0 0 #ffffff",
+    backgroundImage: "linear-gradient(211deg, #3c3e64, #1d1e2a)"
   }
 });
 
-const PaymentDialog = ({ classes, isOpen, screen, closeDialog }) => {
+const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
   let content;
   switch (screen) {
     case DIALOG_SCREENS.PAYMENT:
@@ -61,21 +69,43 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog }) => {
       onClose={closeDialog}
       aria-labelledby="customized-dialog-title"
       open={isOpen}
-      classes={{ paper: classes.container }}
+      classes={{
+        paper: width === "xs" ? classes.containerMobile : classes.container
+      }}
+      fullScreen={width === "xs"}
     >
       <DialogTitle
         id="customized-dialog-title"
         onClose={closeDialog}
-        className={classes.header}
+        className={width === "xs" ? classes.headerMobile : classes.header}
       >
-        <Typography variant="body1">Pagamento para Nome Do Usuário</Typography>
-        <IconButton
-          aria-label="Close"
-          className={classes.closeButton}
-          onClick={closeDialog}
-        >
-          <Close width="7" height="7" />
-        </IconButton>
+        {width !== "xs" && (
+          <React.Fragment>
+            <Typography variant="body1">
+              Pagamento para Nome Do Usuário
+            </Typography>
+            <IconButton
+              aria-label="Close"
+              className={classes.closeButton}
+              onClick={closeDialog}
+            >
+              <Close width="7" height="7" />
+            </IconButton>
+          </React.Fragment>
+        )}
+        {width === "xs" && (
+          <div
+            onClick={closeDialog}
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <RightArrow
+              width="7"
+              height="7"
+              style={{ transform: "rotate(180deg)" }}
+            />
+            <Typography variant="body1">Fechar</Typography>
+          </div>
+        )}
       </DialogTitle>
       <DialogContent className={classes.content}>
         <Root>{content}</Root>
@@ -110,8 +140,10 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export default withStyles(styles)(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(PaymentDialog)
+  withWidth()(
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(PaymentDialog)
+  )
 );

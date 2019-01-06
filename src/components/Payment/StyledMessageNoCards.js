@@ -7,7 +7,11 @@ import Alert from "components/icons/Alert";
 const styles = {
   registerNow: {
     fontWeight: "bold",
-    cursor: "pointer"
+    cursor: "pointer",
+    color: "#ef5778"
+  },
+  text: {
+    color: "#ef5778"
   }
 };
 
@@ -15,7 +19,7 @@ const StyledMessageNoCards = ({ classes, goToRegisterCard }) => (
   <StyledMessage>
     <Alert width="10" height="10" />
     <div>
-      <Typography variant="headline" component="p">
+      <Typography className={classes.text} variant="headline" component="p">
         Nenhum cartão de crédito cadastrado.
       </Typography>
       <Typography

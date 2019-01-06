@@ -23,16 +23,25 @@ const PaymentUser = ({ data, width, classes }) => (
   <Root width={width}>
     <Avatar alt={data.name} src={data.img} className={classes.big} />
     <StyledUserData>
-      <Typography component="p" variant="display4">
+      <Typography
+        component="p"
+        variant={width === "xs" ? "display1" : "display4"}
+      >
         {data.name}
       </Typography>
       <StyledUserDataDetails>
         {!!data.id && (
-          <Typography component="p" variant="headline">
+          <Typography
+            component="p"
+            variant={width === "xs" ? "display3" : "headline"}
+          >
             id: {data.id}
           </Typography>
         )}
-        <Typography component="p" variant="headline">
+        <Typography
+          component="p"
+          variant={width === "xs" ? "display3" : "headline"}
+        >
           {data.username}
         </Typography>
       </StyledUserDataDetails>
