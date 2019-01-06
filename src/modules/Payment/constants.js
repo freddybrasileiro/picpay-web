@@ -1,3 +1,4 @@
+export const CLOSE_DIALOG = "app/payment/CLOSE_DIALOG";
 export const SET_PAYMENT_USER = "app/payment/SET_PAYMENT_USER";
 
 export const DIALOG_SCREENS = {

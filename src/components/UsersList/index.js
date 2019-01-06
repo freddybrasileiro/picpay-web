@@ -5,8 +5,9 @@ import Root from "components/UsersList/Root";
 import Loader from "components/UsersList/Loader";
 import Error from "components/UsersList/Error";
 import Empty from "components/UsersList/Empty";
-
 import UserListItem from "components/UserListItem/";
+
+import PaymentDialog from "containers/PaymentDialog/";
 
 const UsersList = ({ data, isLoading, hasError, setPaymentUser }) => {
   let content;
@@ -23,7 +24,12 @@ const UsersList = ({ data, isLoading, hasError, setPaymentUser }) => {
     ));
   }
 
-  return <Root>{content}</Root>;
+  return (
+    <Root>
+      {content}
+      <PaymentDialog />
+    </Root>
+  );
 };
 
 const propTypes = {

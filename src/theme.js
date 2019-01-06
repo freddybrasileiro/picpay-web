@@ -71,6 +71,12 @@ export default createMuiTheme({
       fontSize: pxToRem(7),
       fontWeight: "normal",
       color: palette.general.duskTow
+    },
+    body1: {
+      ...defaultTypography,
+      fontSize: pxToRem(8),
+      fontWeight: "bold",
+      color: palette.general.white
     }
   },
   palette

@@ -5,7 +5,6 @@ export default styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 20px;
 
   button {
     text-transform: uppercase;
