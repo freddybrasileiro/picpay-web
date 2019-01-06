@@ -15,6 +15,7 @@ import Close from "components/icons/Close";
 import RightArrow from "components/icons/RightArrow";
 
 import Payment from "containers/Payment";
+import RegisterCard from "containers/RegisterCard";
 
 import { closeDialog as doCloseDialog } from "modules/Payment/actions";
 import { DIALOG_SCREENS } from "modules/Payment/constants";
@@ -58,7 +59,7 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
       content = <Payment />;
       break;
     case DIALOG_SCREENS.REGISTER_CARD:
-      content = <div>aaa</div>;
+      content = <RegisterCard />;
       break;
     default:
       content = <div />;
@@ -108,7 +109,7 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
         )}
       </DialogTitle>
       <DialogContent className={classes.content}>
-        <Root>{content}</Root>
+        <Root theme={{ width }}>{content}</Root>
       </DialogContent>
     </Dialog>
   );

@@ -60,7 +60,6 @@ const Payment = ({
     >
       Pagar
     </Button>
-    <Padding bottom={2} />
   </Root>
 );
 
