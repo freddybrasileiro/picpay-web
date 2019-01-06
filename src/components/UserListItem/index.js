@@ -21,8 +21,8 @@ const styles = {
   }
 };
 
-const UserListItem = ({ data, width, classes }) => (
-  <Root width={width}>
+const UserListItem = ({ data, width, classes, setPaymentUser }) => (
+  <Root width={width} onClick={() => setPaymentUser(data.id)}>
     <Avatar alt={data.name} src={data.img} className={classes.big} />
     <StyledUserData>
       <Typography component="p" variant="display1">
@@ -50,12 +50,14 @@ const propTypes = {
     id: PropTypes.number,
     username: PropTypes.string
   }),
-  width: PropTypes.string
+  width: PropTypes.string,
+  setPaymentUser: PropTypes.func
 };
 
 const defaultProps = {
   data: {},
-  width: "xs"
+  width: "xs",
+  setPaymentUser: () => {}
 };
 
 UserListItem.propTypes = propTypes;

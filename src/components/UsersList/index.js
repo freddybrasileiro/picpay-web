@@ -8,7 +8,7 @@ import Empty from "components/UsersList/Empty";
 
 import UserListItem from "components/UserListItem/";
 
-const UsersList = ({ data, isLoading, hasError }) => {
+const UsersList = ({ data, isLoading, hasError, setPaymentUser }) => {
   let content;
 
   if (isLoading) {
@@ -18,7 +18,9 @@ const UsersList = ({ data, isLoading, hasError }) => {
   } else if (!data.length) {
     content = <Empty />;
   } else {
-    content = data.map(user => <UserListItem key={user.id} data={user} />);
+    content = data.map(user => (
+      <UserListItem key={user.id} data={user} setPaymentUser={setPaymentUser} />
+    ));
   }
 
   return <Root>{content}</Root>;

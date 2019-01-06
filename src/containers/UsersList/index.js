@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import { setPaymentUser as doSetPaymentUser } from "modules/Payment/actions";
 import { getUsers as doGetUsers } from "modules/Users/actions";
+
 import {
   selectUsers,
   selectIsLoading,
@@ -18,8 +20,15 @@ class UsersListContainer extends Component {
   }
 
   render() {
-    const { users, isLoading, hasError } = this.props;
-    return <UsersList data={users} isLoading={isLoading} hasError={hasError} />;
+    const { users, isLoading, hasError, setPaymentUser } = this.props;
+    return (
+      <UsersList
+        data={users}
+        isLoading={isLoading}
+        hasError={hasError}
+        setPaymentUser={setPaymentUser}
+      />
+    );
   }
 }
 
@@ -40,6 +49,7 @@ UsersListContainer.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch => ({
   getUsers: () => dispatch(doGetUsers()),
+  setPaymentUser: user => dispatch(doSetPaymentUser(user)),
   dispatch
 });
 

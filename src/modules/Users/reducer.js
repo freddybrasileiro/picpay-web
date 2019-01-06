@@ -7,19 +7,19 @@ import {
 } from "./constants";
 
 export const usersInitialState = {
-  users: [],
+  list: [],
   loading: false,
   error: false
 };
 
-function signinReducer(state = usersInitialState, { type, users }) {
+function usersReducer(state = usersInitialState, { type, payload }) {
   switch (type) {
     case GET_USERS:
-      return { ...state, users: [], error: false };
+      return { ...state, list: [], error: false };
     case GET_USERS_SUCCESS:
-      return { ...state, users, error: false };
+      return { ...state, list: payload, error: false };
     case GET_USERS_ERROR:
-      return { ...state, users: [], error: true };
+      return { ...state, list: [], error: true };
     case SHOW_LOADER:
       return { ...state, loading: true };
     case HIDE_LOADER:
@@ -29,4 +29,4 @@ function signinReducer(state = usersInitialState, { type, users }) {
   }
 }
 
-export default signinReducer;
+export default usersReducer;

@@ -12,10 +12,10 @@ export function getUsers() {
   };
 }
 
-export function getUsersSuccess(users) {
+export function getUsersSuccess(payload) {
   return {
     type: GET_USERS_SUCCESS,
-    users
+    payload
   };
 }
 

@@ -9,7 +9,9 @@ import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
 
-import reducer from "modules/Users/reducer";
+import { combineReducers } from "redux";
+import usersReducer from "modules/Users/reducer";
+import paymentReducer from "modules/Payment/reducer";
 import { getUsersWatcher } from "modules/Users/sagas";
 
 import { ThemeProvider } from "styled-components";
@@ -26,7 +28,10 @@ const reduxDevTools =
 
 // create a redux store with our reducer above and middleware
 let store = createStore(
-  reducer,
+  combineReducers({
+    users: usersReducer,
+    payment: paymentReducer
+  }),
   compose(
     applyMiddleware(sagaMiddleware),
     reduxDevTools
