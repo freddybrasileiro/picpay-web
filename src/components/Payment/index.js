@@ -39,11 +39,11 @@ const styles = () => ({
 
 const Payment = ({
   data,
-  cards,
-  selectedCard,
+  selectedCreditCard,
   width,
   classes,
-  goToRegisterCard
+  goToRegisterCard,
+  creditCards
 }) => (
   <Root width={width}>
     <Padding bottom={2} />
@@ -53,8 +53,8 @@ const Payment = ({
     <Padding bottom={3} />
     <Divider />
     <Padding bottom={1} />
-    {!!cards.length ? (
-      <StyledMessagePaymentCard cardNumber={selectedCard} />
+    {!!creditCards.length ? (
+      <StyledMessagePaymentCard cardNumber={selectedCreditCard} />
     ) : (
       <StyledMessageNoCards goToRegisterCard={goToRegisterCard} />
     )}
@@ -76,16 +76,16 @@ const propTypes = {
     id: PropTypes.number,
     username: PropTypes.string
   }),
-  cards: PropTypes.array,
-  selectedCard: PropTypes.string,
-  width: PropTypes.string
+  creditCards: PropTypes.array,
+  width: PropTypes.string,
+  selectedCreditCard: PropTypes.string
 };
 
 const defaultProps = {
   data: {},
-  cards: [],
-  selectedCard: "XXXX",
-  width: "xs"
+  creditCards: [],
+  width: "xs",
+  selectedCreditCard: "XXXX"
 };
 
 Payment.propTypes = propTypes;

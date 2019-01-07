@@ -9,10 +9,7 @@ import {
   registerCard as doRegisterCard,
   onRegisterCardFormChange as doOnRegisterCardFormChange
 } from "modules/Payment/actions";
-import {
-  selectCreditCards,
-  selectRegisterCardFormData
-} from "modules/Payment/selectors";
+import { selectRegisterCardFormData } from "modules/Payment/selectors";
 
 const RegisterCardContainer = ({
   registerCard,

@@ -12,7 +12,8 @@ export const paymentInitialState = {
   dialogScreen: null,
   paymentUser: null,
   creditCards: [],
-  registerCardForm: {}
+  registerCardForm: {},
+  selectedCreditCardIndex: -1
 };
 
 function paymentReducer(state = paymentInitialState, { type, payload }) {
@@ -35,7 +36,8 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
         ...state,
         creditCards: newCreditCards,
         registerCardForm: {},
-        dialogScreen: DIALOG_SCREENS.PAYMENT
+        dialogScreen: DIALOG_SCREENS.PAYMENT,
+        selectedCreditCardIndex: newCreditCards.length - 1
       };
     case ON_REGISTER_CARD_FORM_CHANGE:
       const newData = state.registerCardForm;

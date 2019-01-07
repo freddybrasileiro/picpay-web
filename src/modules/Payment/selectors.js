@@ -12,11 +12,17 @@ const selectCreditCards = () =>
   createSelector(selectData(), data => data.creditCards);
 const selectRegisterCardFormData = () =>
   createSelector(selectData(), data => data.registerCardForm);
+const selectSelectedCreditCard = () =>
+  createSelector(
+    selectData(),
+    data => data.creditCards[data.selectedCreditCardIndex]
+  );
 
 export {
   selectPaymentUser,
   selectIsDialogOpen,
   selectDialogScreen,
   selectCreditCards,
-  selectRegisterCardFormData
+  selectRegisterCardFormData,
+  selectSelectedCreditCard
 };
