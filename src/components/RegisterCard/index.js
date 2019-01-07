@@ -53,35 +53,66 @@ const brands = [
   }
 ];
 
-const RegisterCard = ({ classes, width, onChange, selectValue }) => {
+const RegisterCard = ({
+  classes,
+  width,
+  registerCard,
+  onRegisterCardFormChange,
+  registerCardFormData
+}) => {
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <Root>
         <TextField
           id="standard-select-currency"
           label="Selecione a bandeira"
-          value="Visa"
+          value={registerCardFormData["brand"]}
           select
           items={brands}
+          onChange={onRegisterCardFormChange}
+          fieldName="brand"
         />
         <TextField
           id="standard-name"
           label="Nome escrito no cartão"
-          value={"aa"}
+          value={registerCardFormData["name"]}
+          onChange={onRegisterCardFormChange}
+          fieldName="name"
         />
-        <TextField id="standard-name" label="Número do Cartão" value={""} />
-        <TextField id="standard-name" label="Validade (mm/aaaa)" value={""} />
-        <TextField id="standard-name" label="Código de segurança" value={""} />
+        <TextField
+          id="standard-name"
+          label="Número do Cartão"
+          value={registerCardFormData["card_number"]}
+          onChange={onRegisterCardFormChange}
+          fieldName="card_number"
+        />
+        <TextField
+          id="standard-name"
+          label="Validade (mm/aaaa)"
+          value={registerCardFormData["expiry_date"]}
+          onChange={onRegisterCardFormChange}
+          fieldName="expiry_date"
+        />
+        <TextField
+          id="standard-name"
+          label="Código de segurança"
+          value={registerCardFormData["cvv"]}
+          onChange={onRegisterCardFormChange}
+          fieldName="cvv"
+        />
         <TextField
           id="standard-name"
           label="CEP do endereço da fatura"
-          value={""}
+          value={registerCardFormData["zip"]}
           margin="normal"
+          onChange={onRegisterCardFormChange}
+          fieldName="zip"
         />
         <Button
           variant="contained"
           color="primary"
           className={width === "xs" ? classes.buttonMobile : classes.button}
+          onClick={registerCard}
         >
           Cadastrar
         </Button>
@@ -91,12 +122,12 @@ const RegisterCard = ({ classes, width, onChange, selectValue }) => {
 };
 
 const propTypes = {
-  onChange: PropTypes.func,
+  onRegisterCardFormChange: PropTypes.func,
   selectValue: PropTypes.func
 };
 
 const defaultProps = {
-  onChange: () => {},
+  onRegisterCardFormChange: () => {},
   selectValue: () => {}
 };
 

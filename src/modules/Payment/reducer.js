@@ -2,13 +2,17 @@ import {
   CLOSE_DIALOG,
   SET_PAYMENT_USER,
   GOT_TO_REGISTER_CARD,
+  REGISTER_CARD,
+  ON_REGISTER_CARD_FORM_CHANGE,
   DIALOG_SCREENS
 } from "./constants";
 
 export const paymentInitialState = {
   dialogIsOpen: false,
   dialogScreen: null,
-  paymentUser: null
+  paymentUser: null,
+  creditCards: [],
+  registerCardForm: {}
 };
 
 function paymentReducer(state = paymentInitialState, { type, payload }) {
@@ -23,6 +27,22 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
         dialogIsOpen: true,
         dialogScreen: DIALOG_SCREENS.PAYMENT,
         paymentUser: payload
+      };
+    case REGISTER_CARD:
+      const newCreditCards = [...state.creditCards];
+      newCreditCards.push(state.registerCardForm);
+      return {
+        ...state,
+        creditCards: newCreditCards,
+        registerCardForm: {},
+        dialogScreen: DIALOG_SCREENS.PAYMENT
+      };
+    case ON_REGISTER_CARD_FORM_CHANGE:
+      const newData = state.registerCardForm;
+      newData[payload.fieldName] = payload.fieldData;
+      return {
+        ...state,
+        registerCardForm: { ...newData }
       };
     default:
       return state;

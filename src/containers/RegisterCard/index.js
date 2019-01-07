@@ -5,28 +5,47 @@ import { createStructuredSelector } from "reselect";
 
 import RegisterCard from "components/RegisterCard";
 
-/*import { closeDialog as doCloseDialog } from "modules/Payment/actions";
-import { DIALOG_SCREENS } from "modules/Payment/constants";
 import {
-  selectIsDialogOpen,
-  selectDialogScreen
+  registerCard as doRegisterCard,
+  onRegisterCardFormChange as doOnRegisterCardFormChange
+} from "modules/Payment/actions";
+import {
+  selectCreditCards,
+  selectRegisterCardFormData
 } from "modules/Payment/selectors";
-*/
 
-const RegisterCardContainer = () => <RegisterCard />;
+const RegisterCardContainer = ({
+  registerCard,
+  onRegisterCardFormChange,
+  registerCardFormData
+}) => (
+  <RegisterCard
+    registerCard={registerCard}
+    onRegisterCardFormChange={onRegisterCardFormChange}
+    registerCardFormData={registerCardFormData}
+  />
+);
 
-const propTypes = {};
+const propTypes = {
+  registerCard: PropTypes.func
+};
 
-const defaultProps = {};
+const defaultProps = {
+  registerCard: () => {}
+};
 
 RegisterCardContainer.propTypes = propTypes;
 RegisterCardContainer.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch => ({
+  registerCard: () => dispatch(doRegisterCard()),
+  onRegisterCardFormChange: data => dispatch(doOnRegisterCardFormChange(data)),
   dispatch
 });
 
-const mapStateToProps = createStructuredSelector({});
+const mapStateToProps = createStructuredSelector({
+  registerCardFormData: selectRegisterCardFormData()
+});
 
 export default connect(
   mapStateToProps,

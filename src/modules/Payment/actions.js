@@ -1,7 +1,9 @@
 import {
   CLOSE_DIALOG,
   SET_PAYMENT_USER,
-  GOT_TO_REGISTER_CARD
+  GOT_TO_REGISTER_CARD,
+  ON_REGISTER_CARD_FORM_CHANGE,
+  REGISTER_CARD
 } from "./constants";
 
 export function closeDialog() {
@@ -20,5 +22,18 @@ export function setPaymentUser(payload) {
 export function goToRegisterCard() {
   return {
     type: GOT_TO_REGISTER_CARD
+  };
+}
+
+export function registerCard() {
+  return {
+    type: REGISTER_CARD
+  };
+}
+
+export function onRegisterCardFormChange(payload) {
+  return {
+    type: ON_REGISTER_CARD_FORM_CHANGE,
+    payload
   };
 }

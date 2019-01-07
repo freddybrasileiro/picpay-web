@@ -49,9 +49,14 @@ const styles = theme => ({
   }
 });
 
+const handleChange = (onHandleChange, fieldName) => event => {
+  onHandleChange({ fieldName, fieldData: event.target.value });
+};
+
 const TextField = ({
   classes,
   id,
+  fieldName,
   select,
   label,
   value,
@@ -65,7 +70,7 @@ const TextField = ({
     label={label}
     className={classes.textField}
     value={value}
-    onChange={onChange}
+    onChange={handleChange(onChange, fieldName)}
     fullWidth
     SelectProps={{
       MenuProps: {
@@ -98,6 +103,7 @@ const TextField = ({
 
 const propTypes = {
   id: PropTypes.string,
+  fieldName: PropTypes.string,
   select: PropTypes.bool,
   label: PropTypes.string,
   value: PropTypes.string,
@@ -107,6 +113,7 @@ const propTypes = {
 
 const defaultProps = {
   id: "",
+  fieldName: "",
   select: false,
   label: "",
   value: "",

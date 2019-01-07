@@ -8,5 +8,15 @@ const selectIsDialogOpen = () =>
   createSelector(selectData(), data => data.dialogIsOpen);
 const selectDialogScreen = () =>
   createSelector(selectData(), data => data.dialogScreen);
+const selectCreditCards = () =>
+  createSelector(selectData(), data => data.creditCards);
+const selectRegisterCardFormData = () =>
+  createSelector(selectData(), data => data.registerCardForm);
 
-export { selectPaymentUser, selectIsDialogOpen, selectDialogScreen };
+export {
+  selectPaymentUser,
+  selectIsDialogOpen,
+  selectDialogScreen,
+  selectCreditCards,
+  selectRegisterCardFormData
+};
