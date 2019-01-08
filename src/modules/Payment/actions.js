@@ -4,8 +4,44 @@ import {
   GOT_TO_REGISTER_CARD,
   ON_REGISTER_CARD_FORM_CHANGE,
   ON_PAYMENT_VALUE_CHANGE,
+  DO_TRANSACTION,
+  DO_TRANSACTION_ERROR,
+  DO_TRANSACTION_SUCCESS,
+  SHOW_LOADER,
+  HIDE_LOADER,
   REGISTER_CARD
 } from "./constants";
+
+export function doTransaction() {
+  return {
+    type: DO_TRANSACTION
+  };
+}
+
+export function doTransactionError() {
+  return {
+    type: DO_TRANSACTION_ERROR
+  };
+}
+
+export function doTransactionSuccess(payload) {
+  return {
+    type: DO_TRANSACTION_SUCCESS,
+    payload
+  };
+}
+
+export function showLoader() {
+  return {
+    type: SHOW_LOADER
+  };
+}
+
+export function hideLoader() {
+  return {
+    type: HIDE_LOADER
+  };
+}
 
 export function closeDialog() {
   return {

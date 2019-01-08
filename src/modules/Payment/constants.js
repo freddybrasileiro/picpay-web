@@ -5,6 +5,11 @@ export const REGISTER_CARD = "app/payment/REGISTER_CARD";
 export const ON_REGISTER_CARD_FORM_CHANGE =
   "app/payment/ON_REGISTER_CARD_FORM_CHANGE";
 export const ON_PAYMENT_VALUE_CHANGE = "app/payment/ON_PAYMENT_VALUE_CHANGE";
+export const DO_TRANSACTION = "app/payment/DO_TRANSACTION";
+export const DO_TRANSACTION_ERROR = "app/payment/DO_TRANSACTION_ERROR";
+export const DO_TRANSACTION_SUCCESS = "app/payment/DO_TRANSACTION_SUCCESS";
+export const SHOW_LOADER = "app/payment/SHOW_LOADER";
+export const HIDE_LOADER = "app/payment/HIDE_LOADER";
 
 export const DIALOG_SCREENS = {
   PAYMENT: "PAYMENT",

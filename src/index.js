@@ -13,6 +13,7 @@ import { combineReducers } from "redux";
 import usersReducer from "modules/Users/reducer";
 import paymentReducer from "modules/Payment/reducer";
 import { getUsersWatcher } from "modules/Users/sagas";
+import { doTransactionWatcher } from "modules/Payment/sagas";
 
 import { ThemeProvider } from "styled-components";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -40,6 +41,7 @@ let store = createStore(
 
 // run the saga
 sagaMiddleware.run(getUsersWatcher);
+sagaMiddleware.run(doTransactionWatcher);
 
 ReactDOM.render(
   <Provider store={store}>

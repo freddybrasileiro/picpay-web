@@ -5,6 +5,11 @@ import {
   REGISTER_CARD,
   ON_REGISTER_CARD_FORM_CHANGE,
   ON_PAYMENT_VALUE_CHANGE,
+  DO_TRANSACTION,
+  DO_TRANSACTION_ERROR,
+  DO_TRANSACTION_SUCCESS,
+  SHOW_LOADER,
+  HIDE_LOADER,
   DIALOG_SCREENS
 } from "./constants";
 
@@ -53,6 +58,16 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
         ...state,
         paymentValue: payload ? parseInt(payload, 10) : 0
       };
+    case DO_TRANSACTION:
+      return { ...state, transactionStatus: {}, error: false };
+    case DO_TRANSACTION_SUCCESS:
+      return { ...state, transactionStatus: payload, error: false };
+    case DO_TRANSACTION_ERROR:
+      return { ...state, transactionStatus: {}, error: true };
+    case SHOW_LOADER:
+      return { ...state, loading: true };
+    case HIDE_LOADER:
+      return { ...state, loading: false };
     default:
       return state;
   }

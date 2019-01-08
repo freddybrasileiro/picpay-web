@@ -46,7 +46,8 @@ const Payment = ({
   goToRegisterCard,
   creditCards,
   onPaymentValueChange,
-  paymentValue
+  paymentValue,
+  doTransaction
 }) => (
   <Root width={width}>
     <Padding bottom={2} />
@@ -71,6 +72,7 @@ const Payment = ({
       variant="contained"
       color="primary"
       className={width === "xs" ? classes.buttonMobile : classes.button}
+      onClick={doTransaction}
     >
       Pagar
     </Button>
@@ -87,7 +89,8 @@ const propTypes = {
   creditCards: PropTypes.array,
   width: PropTypes.string,
   selectedCreditCard: PropTypes.string,
-  onPaymentValueChange: PropTypes.func
+  onPaymentValueChange: PropTypes.func,
+  doTransaction: PropTypes.func
 };
 
 const defaultProps = {
@@ -95,7 +98,8 @@ const defaultProps = {
   creditCards: [],
   width: "xs",
   selectedCreditCard: "XXXX",
-  onPaymentValueChange: () => {}
+  onPaymentValueChange: () => {},
+  doTransaction: () => {}
 };
 
 Payment.propTypes = propTypes;
