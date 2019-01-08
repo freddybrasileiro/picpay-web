@@ -51,7 +51,7 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
     case ON_PAYMENT_VALUE_CHANGE:
       return {
         ...state,
-        paymentValue: payload
+        paymentValue: payload ? parseInt(payload, 10) : 0
       };
     default:
       return state;

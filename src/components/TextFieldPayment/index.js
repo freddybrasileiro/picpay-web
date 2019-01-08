@@ -91,7 +91,7 @@ const propTypes = {
   fieldName: PropTypes.string,
   select: PropTypes.bool,
   label: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.number,
   items: PropTypes.array,
   onChange: PropTypes.func
 };
@@ -101,7 +101,6 @@ const defaultProps = {
   fieldName: "",
   select: false,
   label: "",
-  value: "",
   items: [],
   onChange: () => {}
 };
