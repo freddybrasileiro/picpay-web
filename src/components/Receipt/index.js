@@ -5,6 +5,9 @@ import Button from "@material-ui/core/Button";
 import { Padding } from "styled-components-spacing";
 
 import Root from "./Root";
+import Loader from "./Loader";
+import Error from "./Error";
+
 import StyledButton from "./StyledButton";
 import PaymentUser from "components/PaymentUser";
 import TableLine from "components/TableLine";
@@ -55,41 +58,58 @@ const styles = () => ({
   }
 });
 
-const Receipt = ({ width, user, data, cardNumber, classes }) => {
-  return (
-    <Root theme={{ width }}>
-      <PaymentUser data={user} />
-      <Padding vertical={2} />
-      <Typography component="p" variant="display2">
-        Pagamento Confirmado
-      </Typography>
-      <Padding vertical={1} />
-      <TableLine data={{ label: "Transação", value: data.id }} />
-      <TableLine data={{ label: "Data", value: data.timestamp }} />
-      <TableLine data={{ label: "Cartão", value: cardNumber }} />
-      <TableLine data={{ label: "Valor", value: data.value }} />
-      <Padding vertical={3} />
-      <StyledButton>
-        <Button
-          variant="contained"
-          color="primary"
-          className={
-            width === "xs" ? classes.backButtonMobile : classes.backButton
-          }
-        >
-          voltar
-        </Button>
-        <Padding right={2} />
-        <Button
-          variant="contained"
-          color="primary"
-          className={width === "xs" ? classes.buttonMobile : classes.button}
-        >
-          pagar novamente
-        </Button>
-      </StyledButton>
-    </Root>
-  );
+const Receipt = ({
+  width,
+  user,
+  data,
+  cardNumber,
+  classes,
+  isLoading,
+  hasError
+}) => {
+  let content;
+  if (isLoading) {
+    content = <Loader />;
+  } else if (hasError) {
+    content = <Error />;
+  } else {
+    content = (
+      <React.Fragment>
+        <PaymentUser data={user} />
+        <Padding vertical={2} />
+        <Typography component="p" variant="display2">
+          Pagamento Confirmado
+        </Typography>
+        <Padding vertical={1} />
+        <TableLine data={{ label: "Transação", value: data.id }} />
+        <TableLine data={{ label: "Data", value: data.timestamp }} />
+        <TableLine data={{ label: "Cartão", value: cardNumber }} />
+        <TableLine data={{ label: "Valor", value: data.value }} />
+        <Padding vertical={3} />
+        <StyledButton>
+          <Button
+            variant="contained"
+            color="primary"
+            className={
+              width === "xs" ? classes.backButtonMobile : classes.backButton
+            }
+          >
+            fechar
+          </Button>
+          <Padding right={2} />
+          <Button
+            variant="contained"
+            color="primary"
+            className={width === "xs" ? classes.buttonMobile : classes.button}
+          >
+            pagar novamente
+          </Button>
+        </StyledButton>
+      </React.Fragment>
+    );
+  }
+
+  return <Root>{content}</Root>;
 };
 
 const propTypes = {

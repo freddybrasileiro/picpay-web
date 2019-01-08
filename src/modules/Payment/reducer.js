@@ -20,7 +20,10 @@ export const paymentInitialState = {
   creditCards: [],
   registerCardForm: {},
   selectedCreditCardIndex: -1,
-  paymentValue: 0
+  paymentValue: 0,
+  transaction: {},
+  error: false,
+  loading: false
 };
 
 function paymentReducer(state = paymentInitialState, { type, payload }) {
@@ -63,7 +66,7 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
     case DO_TRANSACTION_SUCCESS:
       return {
         ...state,
-        transactionStatus: payload,
+        transaction: payload.transaction,
         error: false,
         dialogScreen: DIALOG_SCREENS.RECEIPT
       };

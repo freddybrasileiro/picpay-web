@@ -15,6 +15,7 @@ import Close from "components/icons/Close";
 import RightArrow from "components/icons/RightArrow";
 
 import Payment from "containers/Payment";
+import Receipt from "containers/Receipt";
 import RegisterCard from "containers/RegisterCard";
 
 import { closeDialog as doCloseDialog } from "modules/Payment/actions";
@@ -62,7 +63,7 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
       content = <RegisterCard />;
       break;
     default:
-      content = <div />;
+      content = <Receipt />;
   }
 
   return (

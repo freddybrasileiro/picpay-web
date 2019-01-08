@@ -19,6 +19,11 @@ const selectSelectedCreditCard = () =>
   );
 const selectPaymentValue = () =>
   createSelector(selectData(), data => data.paymentValue);
+const selectTransaction = () =>
+  createSelector(selectData(), data => data.transaction);
+const selectHasError = () => createSelector(selectData(), data => data.error);
+const selectIsLoading = () =>
+  createSelector(selectData(), data => data.loading);
 
 export {
   selectPaymentUser,
@@ -27,5 +32,8 @@ export {
   selectCreditCards,
   selectRegisterCardFormData,
   selectSelectedCreditCard,
-  selectPaymentValue
+  selectPaymentValue,
+  selectTransaction,
+  selectHasError,
+  selectIsLoading
 };
