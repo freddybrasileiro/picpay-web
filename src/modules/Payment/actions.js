@@ -3,6 +3,7 @@ import {
   SET_PAYMENT_USER,
   GOT_TO_REGISTER_CARD,
   ON_REGISTER_CARD_FORM_CHANGE,
+  ON_PAYMENT_VALUE_CHANGE,
   REGISTER_CARD
 } from "./constants";
 
@@ -34,6 +35,13 @@ export function registerCard() {
 export function onRegisterCardFormChange(payload) {
   return {
     type: ON_REGISTER_CARD_FORM_CHANGE,
+    payload
+  };
+}
+
+export function onPaymentValueChange(payload) {
+  return {
+    type: ON_PAYMENT_VALUE_CHANGE,
     payload
   };
 }

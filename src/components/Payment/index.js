@@ -8,6 +8,7 @@ import Root from "components/Payment/Root";
 import StyledMessageNoCards from "components/Payment/StyledMessageNoCards";
 import StyledMessagePaymentCard from "components/Payment/StyledMessagePaymentCard";
 import PaymentUser from "components/PaymentUser/";
+import TextFieldPayment from "components/TextFieldPayment";
 import Divider from "components/Utils/Divider";
 
 const styles = () => ({
@@ -36,20 +37,27 @@ const styles = () => ({
     fontWeight: "bold"
   }
 });
-
+//onChange={onRegisterCardFormChange}
 const Payment = ({
   data,
   selectedCreditCard,
   width,
   classes,
   goToRegisterCard,
-  creditCards
+  creditCards,
+  onPaymentValueChange,
+  paymentValue
 }) => (
   <Root width={width}>
     <Padding bottom={2} />
     <PaymentUser data={data} />
     <Padding bottom={2} />
-    <div>VALOR AQUI</div>
+    <TextFieldPayment
+      id="standard-select-currency"
+      fieldName="brand"
+      onChange={onPaymentValueChange}
+      value={paymentValue}
+    />
     <Padding bottom={3} />
     <Divider />
     <Padding bottom={1} />
@@ -78,14 +86,16 @@ const propTypes = {
   }),
   creditCards: PropTypes.array,
   width: PropTypes.string,
-  selectedCreditCard: PropTypes.string
+  selectedCreditCard: PropTypes.string,
+  onPaymentValueChange: PropTypes.func
 };
 
 const defaultProps = {
   data: {},
   creditCards: [],
   width: "xs",
-  selectedCreditCard: "XXXX"
+  selectedCreditCard: "XXXX",
+  onPaymentValueChange: () => {}
 };
 
 Payment.propTypes = propTypes;

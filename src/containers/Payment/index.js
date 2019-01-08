@@ -5,11 +5,15 @@ import { createStructuredSelector } from "reselect";
 
 import Payment from "components/Payment";
 
-import { goToRegisterCard as doGoToRegisterCard } from "modules/Payment/actions";
+import {
+  goToRegisterCard as doGoToRegisterCard,
+  onPaymentValueChange as doOnPaymentValueChange
+} from "modules/Payment/actions";
 import {
   selectPaymentUser,
   selectCreditCards,
-  selectSelectedCreditCard
+  selectSelectedCreditCard,
+  selectPaymentValue
 } from "modules/Payment/selectors";
 import { selectUsers } from "modules/Users/selectors";
 
@@ -25,7 +29,13 @@ class PaymentContainer extends Component {
   }
 
   render() {
-    const { goToRegisterCard, creditCards, selectedCreditCard } = this.props;
+    const {
+      goToRegisterCard,
+      creditCards,
+      selectedCreditCard,
+      onPaymentValueChange,
+      paymentValue
+    } = this.props;
     const cardNumber = selectedCreditCard.card_number || "";
     const finalNumber = cardNumber.substring(
       cardNumber.length,
@@ -38,6 +48,8 @@ class PaymentContainer extends Component {
         goToRegisterCard={goToRegisterCard}
         creditCards={creditCards}
         selectedCreditCard={finalNumber}
+        onPaymentValueChange={onPaymentValueChange}
+        paymentValue={paymentValue}
       />
     );
   }
@@ -47,13 +59,15 @@ const propTypes = {
   userId: PropTypes.number,
   users: PropTypes.array,
   creditCards: PropTypes.array,
-  selectedCreditCard: PropTypes.object
+  selectedCreditCard: PropTypes.object,
+  onPaymentValueChange: PropTypes.func
 };
 
 const defaultProps = {
   users: [],
   creditCards: [],
-  selectedCreditCard: {}
+  selectedCreditCard: {},
+  onPaymentValueChange: () => {}
 };
 
 PaymentContainer.propTypes = propTypes;
@@ -61,6 +75,7 @@ PaymentContainer.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch => ({
   goToRegisterCard: () => dispatch(doGoToRegisterCard()),
+  onPaymentValueChange: value => dispatch(doOnPaymentValueChange(value)),
   dispatch
 });
 
@@ -68,7 +83,8 @@ const mapStateToProps = createStructuredSelector({
   userId: selectPaymentUser(),
   users: selectUsers(),
   creditCards: selectCreditCards(),
-  selectedCreditCard: selectSelectedCreditCard()
+  selectedCreditCard: selectSelectedCreditCard(),
+  paymentValue: selectPaymentValue()
 });
 
 export default connect(

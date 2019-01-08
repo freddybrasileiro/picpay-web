@@ -17,6 +17,8 @@ const selectSelectedCreditCard = () =>
     selectData(),
     data => data.creditCards[data.selectedCreditCardIndex]
   );
+const selectPaymentValue = () =>
+  createSelector(selectData(), data => data.paymentValue);
 
 export {
   selectPaymentUser,
@@ -24,5 +26,6 @@ export {
   selectDialogScreen,
   selectCreditCards,
   selectRegisterCardFormData,
-  selectSelectedCreditCard
+  selectSelectedCreditCard,
+  selectPaymentValue
 };

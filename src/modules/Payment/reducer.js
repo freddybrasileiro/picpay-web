@@ -4,6 +4,7 @@ import {
   GOT_TO_REGISTER_CARD,
   REGISTER_CARD,
   ON_REGISTER_CARD_FORM_CHANGE,
+  ON_PAYMENT_VALUE_CHANGE,
   DIALOG_SCREENS
 } from "./constants";
 
@@ -13,7 +14,8 @@ export const paymentInitialState = {
   paymentUser: null,
   creditCards: [],
   registerCardForm: {},
-  selectedCreditCardIndex: -1
+  selectedCreditCardIndex: -1,
+  paymentValue: 0
 };
 
 function paymentReducer(state = paymentInitialState, { type, payload }) {
@@ -45,6 +47,11 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
       return {
         ...state,
         registerCardForm: { ...newData }
+      };
+    case ON_PAYMENT_VALUE_CHANGE:
+      return {
+        ...state,
+        paymentValue: payload
       };
     default:
       return state;
