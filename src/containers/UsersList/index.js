@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import PaymentDialog from "containers/PaymentDialog/";
+
 import { setPaymentUser as doSetPaymentUser } from "modules/Payment/actions";
 import { getUsers as doGetUsers } from "modules/Users/actions";
 
@@ -22,12 +24,15 @@ class UsersListContainer extends Component {
   render() {
     const { users, isLoading, hasError, setPaymentUser } = this.props;
     return (
-      <UsersList
-        data={users}
-        isLoading={isLoading}
-        hasError={hasError}
-        setPaymentUser={setPaymentUser}
-      />
+      <React.Fragment>
+        <UsersList
+          data={users}
+          isLoading={isLoading}
+          hasError={hasError}
+          setPaymentUser={setPaymentUser}
+        />
+        <PaymentDialog />
+      </React.Fragment>
     );
   }
 }

@@ -8,6 +8,7 @@ import { DEFAULT_LOCALE, translationMessages } from "i18n";
 
 import Payment from "components/Payment";
 import data from "components/__fixtures__/user.fixture";
+import card from "components/__fixtures__/card.fixture";
 import cards from "components/__fixtures__/cards.fixture";
 
 storiesOf("Components/Payment", module)
@@ -21,6 +22,19 @@ storiesOf("Components/Payment", module)
       </ThemeProvider>
     </IntlProvider>
   ))
-  .add("Default", () => <Payment data={data} cards={cards} />)
+  .add("Default", () => {
+    const cardNumber = card.card_number || "";
+    const finalNumber = cardNumber.substring(
+      cardNumber.length,
+      cardNumber.length - 4
+    );
+    return (
+      <Payment
+        data={data}
+        selectedCreditCard={finalNumber}
+        creditCards={cards}
+      />
+    );
+  })
   .add("Without card", () => <Payment data={data} />);
 //.add("Desktop without data", () => <Payment />);

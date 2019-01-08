@@ -63,7 +63,7 @@ const Payment = ({
     <Divider />
     <Padding bottom={1} />
     {!!creditCards.length ? (
-      <StyledMessagePaymentCard cardNumber={selectedCreditCard} />
+      <StyledMessagePaymentCard cardNumber={selectedCreditCard} width={width} />
     ) : (
       <StyledMessageNoCards goToRegisterCard={goToRegisterCard} />
     )}

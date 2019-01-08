@@ -123,12 +123,14 @@ const RegisterCard = ({
 
 const propTypes = {
   onRegisterCardFormChange: PropTypes.func,
-  selectValue: PropTypes.func
+  selectValue: PropTypes.func,
+  registerCardFormData: PropTypes.object
 };
 
 const defaultProps = {
   onRegisterCardFormChange: () => {},
-  selectValue: () => {}
+  selectValue: () => {},
+  registerCardFormData: { card_number: "1111111111111111" }
 };
 
 RegisterCard.propTypes = propTypes;

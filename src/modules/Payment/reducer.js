@@ -61,7 +61,12 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
     case DO_TRANSACTION:
       return { ...state, transactionStatus: {}, error: false };
     case DO_TRANSACTION_SUCCESS:
-      return { ...state, transactionStatus: payload, error: false };
+      return {
+        ...state,
+        transactionStatus: payload,
+        error: false,
+        dialogScreen: DIALOG_SCREENS.RECEIPT
+      };
     case DO_TRANSACTION_ERROR:
       return { ...state, transactionStatus: {}, error: true };
     case SHOW_LOADER:
