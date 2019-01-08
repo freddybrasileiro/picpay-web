@@ -37,7 +37,7 @@ const styles = () => ({
     fontWeight: "bold"
   }
 });
-//onChange={onRegisterCardFormChange}
+
 const Payment = ({
   data,
   selectedCreditCard,
