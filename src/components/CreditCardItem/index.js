@@ -8,8 +8,8 @@ import CreditCard from "components/icons/CreditCard";
 import Check from "components/icons/Check";
 import CreditCardGreen from "components/icons/CreditCardGreen";
 
-const Receipt = ({ width, card, isSelected }) => (
-  <Root theme={{ isSelected }}>
+const Receipt = ({ width, card, isSelected, onClick }) => (
+  <Root theme={{ isSelected }} onClick={onClick}>
     <Content>
       {width === "xs" ? (
         <CreditCardGreen width="14" height="14" />

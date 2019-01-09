@@ -35,7 +35,14 @@ const styles = () => ({
   }
 });
 
-const CreditCardList = ({ width, cards, selectedCard, classes }) => (
+const CreditCardList = ({
+  width,
+  cards,
+  selectedCard,
+  classes,
+  onCardClick,
+  goToRegisterCard
+}) => (
   <Root>
     <Padding top={1} />
     <Typography variant="display2" component="p">
@@ -47,10 +54,11 @@ const CreditCardList = ({ width, cards, selectedCard, classes }) => (
         key={index}
         card={card}
         isSelected={index === selectedCard}
+        onClick={() => onCardClick(index)}
       />
     ))}
     <Divider />
-    <NewCardWrapper>
+    <NewCardWrapper onClick={goToRegisterCard}>
       {width === "xs" ? (
         <AddGreen width="14" height="14" />
       ) : (
