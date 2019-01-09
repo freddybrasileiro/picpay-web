@@ -5,8 +5,8 @@ import StyledMessage from "components/Payment/StyledMessage";
 import CreditCard from "components/icons/CreditCard";
 import CreditCardGreen from "components/icons/CreditCardGreen";
 
-export default ({ cardNumber, width }) => (
-  <StyledMessage>
+export default ({ cardNumber, width, onClick }) => (
+  <StyledMessage onClick={onClick}>
     {width === "xs" ? (
       <CreditCardGreen width="10" height="10" />
     ) : (

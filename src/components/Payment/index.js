@@ -47,7 +47,8 @@ const Payment = ({
   creditCards,
   onPaymentValueChange,
   paymentValue,
-  doTransaction
+  doTransaction,
+  goToCreditCardList
 }) => (
   <Root width={width}>
     <Padding bottom={2} />
@@ -63,7 +64,11 @@ const Payment = ({
     <Divider />
     <Padding bottom={1} />
     {!!creditCards.length ? (
-      <StyledMessagePaymentCard cardNumber={selectedCreditCard} width={width} />
+      <StyledMessagePaymentCard
+        cardNumber={selectedCreditCard}
+        width={width}
+        onClick={goToCreditCardList}
+      />
     ) : (
       <StyledMessageNoCards goToRegisterCard={goToRegisterCard} />
     )}
@@ -90,7 +95,8 @@ const propTypes = {
   width: PropTypes.string,
   selectedCreditCard: PropTypes.string,
   onPaymentValueChange: PropTypes.func,
-  doTransaction: PropTypes.func
+  doTransaction: PropTypes.func,
+  goToCreditCardList: PropTypes.func
 };
 
 const defaultProps = {
@@ -99,7 +105,8 @@ const defaultProps = {
   width: "xs",
   selectedCreditCard: "XXXX",
   onPaymentValueChange: () => {},
-  doTransaction: () => {}
+  doTransaction: () => {},
+  goToCreditCardList: () => {}
 };
 
 Payment.propTypes = propTypes;

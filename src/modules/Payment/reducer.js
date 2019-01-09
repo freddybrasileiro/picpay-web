@@ -10,6 +10,7 @@ import {
   DO_TRANSACTION_SUCCESS,
   SHOW_LOADER,
   HIDE_LOADER,
+  GO_TO_CARD_LIST,
   DIALOG_SCREENS
 } from "./constants";
 
@@ -21,7 +22,7 @@ export const paymentInitialState = {
   paymentUser: null,
   creditCards: cards,
   registerCardForm: {},
-  selectedCreditCardIndex: 0, //-1,
+  selectedCreditCardIndex: 1, //-1,
   paymentValue: 0,
   transaction: {},
   error: false,
@@ -78,6 +79,8 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
       return { ...state, loading: true };
     case HIDE_LOADER:
       return { ...state, loading: false };
+    case GO_TO_CARD_LIST:
+      return { ...state, dialogScreen: DIALOG_SCREENS.CARD_LIST };
     default:
       return state;
   }

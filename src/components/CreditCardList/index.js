@@ -43,7 +43,11 @@ const CreditCardList = ({ width, cards, selectedCard, classes }) => (
     </Typography>
     <Padding top={2} />
     {cards.map((card, index) => (
-      <CreditCardItem card={card} isSelected={index === selectedCard} />
+      <CreditCardItem
+        key={index}
+        card={card}
+        isSelected={index === selectedCard}
+      />
     ))}
     <Divider />
     <NewCardWrapper>

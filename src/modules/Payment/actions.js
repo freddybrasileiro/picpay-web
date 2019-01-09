@@ -9,8 +9,15 @@ import {
   DO_TRANSACTION_SUCCESS,
   SHOW_LOADER,
   HIDE_LOADER,
-  REGISTER_CARD
+  REGISTER_CARD,
+  GO_TO_CARD_LIST
 } from "./constants";
+
+export function goToCreditCardList() {
+  return {
+    type: GO_TO_CARD_LIST
+  };
+}
 
 export function doTransaction() {
   return {

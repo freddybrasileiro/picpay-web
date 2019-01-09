@@ -17,6 +17,8 @@ const selectSelectedCreditCard = () =>
     selectData(),
     data => data.creditCards[data.selectedCreditCardIndex]
   );
+const selectSelectedCreditCardIndex = () =>
+  createSelector(selectData(), data => data.selectedCreditCardIndex);
 const selectPaymentValue = () =>
   createSelector(selectData(), data => data.paymentValue);
 const selectTransaction = () =>
@@ -35,5 +37,6 @@ export {
   selectPaymentValue,
   selectTransaction,
   selectHasError,
-  selectIsLoading
+  selectIsLoading,
+  selectSelectedCreditCardIndex
 };

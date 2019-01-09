@@ -8,7 +8,8 @@ import Payment from "components/Payment";
 import {
   goToRegisterCard as doGoToRegisterCard,
   onPaymentValueChange as doOnPaymentValueChange,
-  doTransaction as doDoTransaction
+  doTransaction as doDoTransaction,
+  goToCreditCardList as doGoToCreditCardList
 } from "modules/Payment/actions";
 import {
   selectPaymentUser,
@@ -36,7 +37,8 @@ class PaymentContainer extends Component {
       selectedCreditCard,
       onPaymentValueChange,
       paymentValue,
-      doTransaction
+      doTransaction,
+      goToCreditCardList
     } = this.props;
     const cardNumber = selectedCreditCard.card_number || "";
     const finalNumber = cardNumber.substring(
@@ -53,6 +55,7 @@ class PaymentContainer extends Component {
         onPaymentValueChange={onPaymentValueChange}
         paymentValue={paymentValue}
         doTransaction={doTransaction}
+        goToCreditCardList={goToCreditCardList}
       />
     );
   }
@@ -80,6 +83,7 @@ const mapDispatchToProps = dispatch => ({
   goToRegisterCard: () => dispatch(doGoToRegisterCard()),
   onPaymentValueChange: value => dispatch(doOnPaymentValueChange(value)),
   doTransaction: () => dispatch(doDoTransaction()),
+  goToCreditCardList: () => dispatch(doGoToCreditCardList()),
   dispatch
 });
 
