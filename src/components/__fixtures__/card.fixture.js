@@ -1,5 +1,8 @@
 export default {
+  brand: "Elo",
+  name: "Joao Silva",
   card_number: "1111111111111111",
-  cvv: 789,
-  expiry_date: "01/18"
+  expiry_date: "11/2021",
+  cvv: "123",
+  zip: "04000000"
 };
