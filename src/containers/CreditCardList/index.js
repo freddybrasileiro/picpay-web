@@ -4,7 +4,10 @@ import { createStructuredSelector } from "reselect";
 
 import CreditCardList from "components/CreditCardList";
 
-import { goToRegisterCard as doGoToRegisterCard } from "modules/Payment/actions";
+import {
+  goToRegisterCard as doGoToRegisterCard,
+  setSelectedCreditCard as doSetSelectedCreditCard
+} from "modules/Payment/actions";
 import {
   selectSelectedCreditCardIndex,
   selectCreditCards
@@ -21,13 +24,14 @@ class CreditCardListContainer extends Component {
   handleOnClick = index => this.setState({ selectedCard: index });
 
   render() {
-    const { creditCards, goToRegisterCard } = this.props;
+    const { creditCards, goToRegisterCard, setSelectedCreditCard } = this.props;
     return (
       <CreditCardList
         cards={creditCards}
         selectedCard={this.state.selectedCard}
         onCardClick={this.handleOnClick}
         goToRegisterCard={goToRegisterCard}
+        setSelectedCreditCard={setSelectedCreditCard}
       />
     );
   }
@@ -35,6 +39,7 @@ class CreditCardListContainer extends Component {
 
 const mapDispatchToProps = dispatch => ({
   goToRegisterCard: () => dispatch(doGoToRegisterCard()),
+  setSelectedCreditCard: index => dispatch(doSetSelectedCreditCard(index)),
   dispatch
 });
 

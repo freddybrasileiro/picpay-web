@@ -10,8 +10,16 @@ import {
   SHOW_LOADER,
   HIDE_LOADER,
   REGISTER_CARD,
+  SELECT_CARD,
   GO_TO_CARD_LIST
 } from "./constants";
+
+export function setSelectedCreditCard(payload) {
+  return {
+    type: SELECT_CARD,
+    payload
+  };
+}
 
 export function goToCreditCardList() {
   return {

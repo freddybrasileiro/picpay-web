@@ -11,6 +11,7 @@ import {
   SHOW_LOADER,
   HIDE_LOADER,
   GO_TO_CARD_LIST,
+  SELECT_CARD,
   DIALOG_SCREENS
 } from "./constants";
 
@@ -81,6 +82,12 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
       return { ...state, loading: false };
     case GO_TO_CARD_LIST:
       return { ...state, dialogScreen: DIALOG_SCREENS.CARD_LIST };
+    case SELECT_CARD:
+      return {
+        ...state,
+        selectedCreditCardIndex: payload,
+        dialogScreen: DIALOG_SCREENS.PAYMENT
+      };
     default:
       return state;
   }

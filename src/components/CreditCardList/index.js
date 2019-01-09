@@ -41,7 +41,8 @@ const CreditCardList = ({
   selectedCard,
   classes,
   onCardClick,
-  goToRegisterCard
+  goToRegisterCard,
+  setSelectedCreditCard
 }) => (
   <Root>
     <Padding top={1} />
@@ -73,6 +74,7 @@ const CreditCardList = ({
       variant="contained"
       color="primary"
       className={width === "xs" ? classes.buttonMobile : classes.button}
+      onClick={() => setSelectedCreditCard(selectedCard)}
     >
       selecionar
     </Button>
