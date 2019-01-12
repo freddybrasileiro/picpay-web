@@ -5,10 +5,10 @@ import Button from "@material-ui/core/Button";
 import { Padding } from "styled-components-spacing";
 
 import Root from "./Root";
-import Loader from "./Loader";
-import Error from "./Error";
-
 import StyledButton from "./StyledButton";
+
+import Loader from "components/Utils/Loader";
+import Error from "components/Utils/Error";
 import PaymentUser from "components/PaymentUser";
 import TableLine from "components/TableLine";
 
