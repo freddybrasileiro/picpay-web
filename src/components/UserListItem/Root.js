@@ -9,6 +9,7 @@ export default styled.section`
   padding: 10px 20px;
   align-items: center;
   cursor: pointer;
+  width: 100%;
 
   :hover {
     opacity: 0.9;

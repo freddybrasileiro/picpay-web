@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Root from "components/UsersList/Root";
-import Loader from "components/UsersList/Loader";
-import Error from "components/UsersList/Error";
-import Empty from "components/UsersList/Empty";
+import Root from "./Root";
+import Loader from "./Loader";
+import Error from "./Error";
+import Empty from "./Empty";
 import UserListItem from "components/UserListItem/";
 
 const UsersList = ({ data, isLoading, hasError, setPaymentUser }) => {
