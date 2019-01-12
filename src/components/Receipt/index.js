@@ -80,7 +80,7 @@ const Receipt = ({
         <PaymentUser data={user} />
         <Padding vertical={2} />
         <Typography component="p" variant="display2">
-          Pagamento confirmado!
+          {data.success ? "Pagamento confirmado!" : "Ops! Transação negada :("}
         </Typography>
         <Padding vertical={1} />
         <TableLine data={{ label: "Transação", value: data.id }} />
