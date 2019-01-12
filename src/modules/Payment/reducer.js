@@ -31,7 +31,11 @@ export const paymentInitialState = {
 function paymentReducer(state = paymentInitialState, { type, payload }) {
   switch (type) {
     case CLOSE_DIALOG:
-      return { ...paymentInitialState };
+      return {
+        ...paymentInitialState,
+        creditCards: state.creditCards,
+        selectedCreditCardIndex: state.selectedCreditCardIndex
+      };
     case GOT_TO_REGISTER_CARD:
       return { ...state, dialogScreen: DIALOG_SCREENS.REGISTER_CARD };
     case SET_PAYMENT_USER:
