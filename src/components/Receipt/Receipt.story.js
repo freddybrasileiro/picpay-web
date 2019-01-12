@@ -31,4 +31,10 @@ storiesOf("Components/Receipt", module)
     );
     const maskNumber = `**** **** **** ${finalNumber}`;
     return <Receipt user={user} data={transaction} cardNumber={maskNumber} />;
+  })
+  .add("Loading", () => {
+    return <Receipt isLoading={true} />;
+  })
+  .add("Error", () => {
+    return <Receipt hasError={true} />;
   });
