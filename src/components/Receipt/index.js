@@ -109,7 +109,7 @@ const Receipt = ({
     );
   }
 
-  return <Root>{content}</Root>;
+  return <Root theme={{ width }}>{content}</Root>;
 };
 
 const propTypes = {
