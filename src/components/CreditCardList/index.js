@@ -44,7 +44,7 @@ const CreditCardList = ({
   goToRegisterCard,
   setSelectedCreditCard
 }) => (
-  <Root>
+  <Root theme={{ width }}>
     <Padding top={1} />
     <Typography variant="display2" component="p">
       Cartões Cadastrados

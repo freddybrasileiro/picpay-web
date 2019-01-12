@@ -9,7 +9,7 @@ import Check from "components/icons/Check";
 import CreditCardGreen from "components/icons/CreditCardGreen";
 
 const CreditCardItem = ({ width, card, isSelected, onClick }) => (
-  <Root theme={{ isSelected }} onClick={onClick}>
+  <Root theme={{ isSelected, width }} onClick={onClick}>
     <Content>
       {width === "xs" ? (
         <CreditCardGreen width="14" height="14" />
