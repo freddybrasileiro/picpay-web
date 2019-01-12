@@ -15,15 +15,13 @@ import {
   DIALOG_SCREENS
 } from "./constants";
 
-import cards from "components/__fixtures__/cards.fixture";
-
 export const paymentInitialState = {
   dialogIsOpen: false,
   dialogScreen: null,
   paymentUser: null,
-  creditCards: cards,
+  creditCards: [],
   registerCardForm: {},
-  selectedCreditCardIndex: 1, //-1,
+  selectedCreditCardIndex: -1,
   paymentValue: 0,
   transaction: {},
   error: false,

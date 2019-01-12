@@ -15,7 +15,7 @@ export default styled.section`
 
   p {
     color: ${props => (props.theme.width === "xs" ? "white" : "#474971")};
-    text-align: end;
+    flex: 1;
     margin-right: ${props => (props.theme.isSelected ? "12px" : "24px")};
     margin-left: 8px;
   }
