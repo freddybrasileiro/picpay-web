@@ -65,7 +65,9 @@ const Receipt = ({
   cardNumber,
   classes,
   isLoading,
-  hasError
+  hasError,
+  goToPayment,
+  closeDialog
 }) => {
   let content;
   if (isLoading) {
@@ -78,7 +80,7 @@ const Receipt = ({
         <PaymentUser data={user} />
         <Padding vertical={2} />
         <Typography component="p" variant="display2">
-          Pagamento Confirmado
+          Pagamento confirmado!
         </Typography>
         <Padding vertical={1} />
         <TableLine data={{ label: "Transação", value: data.id }} />
@@ -93,6 +95,7 @@ const Receipt = ({
             className={
               width === "xs" ? classes.backButtonMobile : classes.backButton
             }
+            onClick={closeDialog}
           >
             fechar
           </Button>
@@ -101,6 +104,7 @@ const Receipt = ({
             variant="contained"
             color="primary"
             className={width === "xs" ? classes.buttonMobile : classes.button}
+            onClick={goToPayment}
           >
             pagar novamente
           </Button>
@@ -114,11 +118,15 @@ const Receipt = ({
 
 const propTypes = {
   data: PropTypes.object,
-  cardNumber: PropTypes.string
+  cardNumber: PropTypes.string,
+  closeDialog: PropTypes.func,
+  goToPayment: PropTypes.func
 };
 
 const defaultProps = {
-  data: {}
+  data: {},
+  closeDialog: () => {},
+  goToPayment: () => {}
 };
 
 Receipt.propTypes = propTypes;

@@ -11,8 +11,15 @@ import {
   HIDE_LOADER,
   REGISTER_CARD,
   SELECT_CARD,
-  GO_TO_CARD_LIST
+  GO_TO_CARD_LIST,
+  GO_TO_PAYMENT
 } from "./constants";
+
+export function goToPayment() {
+  return {
+    type: GO_TO_PAYMENT
+  };
+}
 
 export function setSelectedCreditCard(payload) {
   return {

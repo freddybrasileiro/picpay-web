@@ -12,6 +12,10 @@ import {
   selectPaymentUser
 } from "modules/Payment/selectors";
 import { selectUsers } from "modules/Users/selectors";
+import {
+  goToPayment as doGoToPayment,
+  closeDialog as doCloseDialog
+} from "modules/Payment/actions";
 
 class ReceiptContainer extends Component {
   state = {
@@ -25,7 +29,14 @@ class ReceiptContainer extends Component {
   }
 
   render() {
-    const { hasError, isLoading, transaction, selectedCreditCard } = this.props;
+    const {
+      hasError,
+      isLoading,
+      transaction,
+      selectedCreditCard,
+      goToPayment,
+      closeDialog
+    } = this.props;
     const cardNumber =
       (selectedCreditCard && selectedCreditCard.card_number) || "";
     const finalNumber = cardNumber.substring(
@@ -40,6 +51,8 @@ class ReceiptContainer extends Component {
         user={this.state.userData}
         data={transaction}
         cardNumber={maskNumber}
+        goToPayment={goToPayment}
+        closeDialog={closeDialog}
       />
     );
   }
@@ -54,4 +67,13 @@ const mapStateToProps = createStructuredSelector({
   selectedCreditCard: selectSelectedCreditCard()
 });
 
-export default connect(mapStateToProps)(ReceiptContainer);
+const mapDispatchToProps = dispatch => ({
+  goToPayment: () => dispatch(doGoToPayment()),
+  closeDialog: () => dispatch(doCloseDialog()),
+  dispatch
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReceiptContainer);

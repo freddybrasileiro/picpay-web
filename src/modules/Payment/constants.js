@@ -12,6 +12,7 @@ export const SHOW_LOADER = "app/payment/SHOW_LOADER";
 export const HIDE_LOADER = "app/payment/HIDE_LOADER";
 export const GO_TO_CARD_LIST = "app/payment/GO_TO_CARD_LIST";
 export const SELECT_CARD = "app/payment/SELECT_CARD";
+export const GO_TO_PAYMENT = "app/payment/GO_TO_PAYMENT";
 
 export const DIALOG_SCREENS = {
   PAYMENT: "PAYMENT",
