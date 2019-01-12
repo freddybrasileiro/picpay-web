@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreditCardItem Should render the CreditCardItem 1`] = `
+<Fragment>
+  <CreditCardItem
+    card={
+      Object {
+        "brand": "Elo",
+        "card_number": "1111111111111111",
+        "cvv": "123",
+        "expiry_date": "11/2021",
+        "name": "Joao Silva",
+        "zip": "04000000",
+      }
+    }
+    isSelected={true}
+    width="md"
+  />
+  <EventListener
+    onResize={[Function]}
+    target="window"
+  />
+</Fragment>
+`;

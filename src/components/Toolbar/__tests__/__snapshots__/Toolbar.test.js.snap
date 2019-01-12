@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar Should render the Toolbar 1`] = `
+<section
+  className="sc-bdVaJa leDNtK"
+>
+  <WithStyles(Grid)
+    alignItems="center"
+    container={true}
+    direction="row"
+    justify="center"
+    spacing={8}
+  >
+    <WithStyles(Grid)
+      item={true}
+      md={6}
+      xs={12}
+    >
+      <styled.section>
+        <Component
+          height="16"
+          width="102"
+        />
+      </styled.section>
+    </WithStyles(Grid)>
+  </WithStyles(Grid)>
+</section>
+`;

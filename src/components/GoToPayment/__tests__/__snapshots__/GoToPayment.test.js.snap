@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoToPayment Should render the GoToPayment 1`] = `
+<Fragment>
+  <GoToPayment
+    width="md"
+  />
+  <EventListener
+    onResize={[Function]}
+    target="window"
+  />
+</Fragment>
+`;

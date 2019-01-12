@@ -37,4 +37,3 @@ storiesOf("Components/Payment", module)
     );
   })
   .add("Without card", () => <Payment data={data} />);
-//.add("Desktop without data", () => <Payment />);

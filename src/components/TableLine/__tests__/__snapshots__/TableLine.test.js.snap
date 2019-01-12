@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableLine Should render the TableLine 1`] = `
+<Fragment>
+  <Receipt
+    data={
+      Object {
+        "label": "Transação",
+        "value": "8888888",
+      }
+    }
+    width="md"
+  />
+  <EventListener
+    onResize={[Function]}
+    target="window"
+  />
+</Fragment>
+`;

@@ -8,7 +8,7 @@ import CreditCard from "components/icons/CreditCard";
 import Check from "components/icons/Check";
 import CreditCardGreen from "components/icons/CreditCardGreen";
 
-const Receipt = ({ width, card, isSelected, onClick }) => (
+const CreditCardItem = ({ width, card, isSelected, onClick }) => (
   <Root theme={{ isSelected }} onClick={onClick}>
     <Content>
       {width === "xs" ? (
@@ -34,7 +34,7 @@ const defaultProps = {
   isSelected: false
 };
 
-Receipt.propTypes = propTypes;
-Receipt.defaultProps = defaultProps;
+CreditCardItem.propTypes = propTypes;
+CreditCardItem.defaultProps = defaultProps;
 
-export default withWidth()(Receipt);
+export default withWidth()(CreditCardItem);
