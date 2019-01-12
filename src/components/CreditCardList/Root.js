@@ -8,5 +8,6 @@ export default styled.section`
 
   p {
     color: ${props => (props.theme.width === "xs" ? "white" : "#474971")};
+    font-weight: bold;
   }
 `;

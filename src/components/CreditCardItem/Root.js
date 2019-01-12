@@ -18,5 +18,7 @@ export default styled.section`
     flex: 1;
     margin-right: ${props => (props.theme.isSelected ? "12px" : "24px")};
     margin-left: 8px;
+    font-weight: bold;
+    display: flex;
   }
 `;
