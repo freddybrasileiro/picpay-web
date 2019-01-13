@@ -17,7 +17,11 @@ const CreditCardItem = ({ width, card, isSelected, onClick }) => (
       ) : (
         <CreditCard width="14" height="14" />
       )}
-      <Typography variant="display2" component="p">
+      <Typography
+        variant="display2"
+        component="div"
+        style={{ display: "flex" }}
+      >
         <CreditCardNumberWrapper>
           {card.card_number.substring(0, 4)}
         </CreditCardNumberWrapper>

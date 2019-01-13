@@ -13,7 +13,7 @@ export default styled.section`
     background-color: rgba(125, 230, 198, 0.15);
   }
 
-  p {
+  div {
     color: ${props => (props.theme.width === "xs" ? "white" : "#474971")};
     flex: 1;
     margin-right: ${props => (props.theme.isSelected ? "12px" : "24px")};
