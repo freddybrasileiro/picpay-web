@@ -33,7 +33,3 @@ to run the storybook
 ```
 npm run storybook
 ```
-
-## Known issuesss
-
-- 

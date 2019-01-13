@@ -4,8 +4,12 @@ import { withStyles, withWidth } from "@material-ui/core";
 
 import Button from "@material-ui/core/Button";
 
-import TextField from "components/TextField";
 import Root from "./Root";
+import TextField from "components/TextField";
+import CreditCardFormat from "components/TextField/CreditCardFormat";
+import CcvFormat from "components/TextField/CcvFormat";
+import ZipCodeFormat from "components/TextField/ZipCodeFormat";
+import DateFormat from "components/TextField/DateFormat";
 
 const styles = theme => ({
   button: {
@@ -85,6 +89,7 @@ const RegisterCard = ({
           value={registerCardFormData["card_number"]}
           onChange={onRegisterCardFormChange}
           fieldName="card_number"
+          format={CreditCardFormat}
         />
         <TextField
           id="standard-name"
@@ -92,6 +97,7 @@ const RegisterCard = ({
           value={registerCardFormData["expiry_date"]}
           onChange={onRegisterCardFormChange}
           fieldName="expiry_date"
+          format={DateFormat}
         />
         <TextField
           id="standard-name"
@@ -99,6 +105,7 @@ const RegisterCard = ({
           value={registerCardFormData["cvv"]}
           onChange={onRegisterCardFormChange}
           fieldName="cvv"
+          format={CcvFormat}
         />
         <TextField
           id="standard-name"
@@ -107,6 +114,7 @@ const RegisterCard = ({
           margin="normal"
           onChange={onRegisterCardFormChange}
           fieldName="zip"
+          format={ZipCodeFormat}
         />
         <Button
           variant="contained"

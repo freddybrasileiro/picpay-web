@@ -23,16 +23,16 @@ const CreditCardItem = ({ width, card, isSelected, onClick }) => (
         style={{ display: "flex" }}
       >
         <CreditCardNumberWrapper>
-          {card.card_number.substring(0, 4)}
+          {card.card_number && card.card_number.substring(0, 4)}
         </CreditCardNumberWrapper>
         <CreditCardNumberWrapper>
-          {card.card_number.substring(4, 8)}
+          {card.card_number && card.card_number.substring(4, 8)}
         </CreditCardNumberWrapper>
         <CreditCardNumberWrapper>
-          {card.card_number.substring(8, 12)}
+          {card.card_number && card.card_number.substring(8, 12)}
         </CreditCardNumberWrapper>
         <CreditCardNumberWrapper>
-          {card.card_number.substring(12, 16)}
+          {card.card_number && card.card_number.substring(12, 16)}
         </CreditCardNumberWrapper>
       </Typography>
       {isSelected && <Check width="12" height="12" />}
@@ -46,7 +46,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  card: {},
+  card: { card_number: "" },
   isSelected: false
 };
 

@@ -62,7 +62,8 @@ const TextField = ({
   value,
   items,
   onChange,
-  width
+  width,
+  format
 }) => (
   <TextFieldMaterialUi
     id={id}
@@ -72,6 +73,7 @@ const TextField = ({
     value={value}
     onChange={handleChange(onChange, fieldName)}
     fullWidth
+    required
     SelectProps={{
       MenuProps: {
         className: classes.menu
@@ -90,7 +92,8 @@ const TextField = ({
         underline:
           width === "xs" ? classes.cssUnderlineMobile : classes.cssUnderline,
         focused: width === "xs" ? classes.cssFocusedMobile : classes.cssFocused
-      }
+      },
+      inputComponent: format
     }}
   >
     {items.map(option => (

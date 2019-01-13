@@ -29,6 +29,21 @@ export const paymentInitialState = {
   loading: false
 };
 
+const checkIsCardValid = (registerCardForm = {}) => {
+  return (
+    registerCardForm.name &&
+    registerCardForm.brand &&
+    registerCardForm.card_number &&
+    registerCardForm.expiry_date &&
+    registerCardForm.cvv &&
+    registerCardForm.zip &&
+    registerCardForm.card_number.length === 16 &&
+    registerCardForm.expiry_date.length === 6 &&
+    registerCardForm.cvv.length === 3 &&
+    registerCardForm.zip.length === 8
+  );
+};
+
 function paymentReducer(state = paymentInitialState, { type, payload }) {
   switch (type) {
     case CLOSE_DIALOG:
@@ -47,14 +62,20 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
         paymentUser: payload
       };
     case REGISTER_CARD:
+      const isCardValid = checkIsCardValid(state.registerCardForm);
       const newCreditCards = [...state.creditCards];
       newCreditCards.push(state.registerCardForm);
+      const newCardData = isCardValid
+        ? {
+            creditCards: newCreditCards,
+            registerCardForm: {},
+            dialogScreen: DIALOG_SCREENS.PAYMENT,
+            selectedCreditCardIndex: newCreditCards.length - 1
+          }
+        : {};
       return {
         ...state,
-        creditCards: newCreditCards,
-        registerCardForm: {},
-        dialogScreen: DIALOG_SCREENS.PAYMENT,
-        selectedCreditCardIndex: newCreditCards.length - 1
+        ...newCardData
       };
     case ON_REGISTER_CARD_FORM_CHANGE:
       const newData = state.registerCardForm;
