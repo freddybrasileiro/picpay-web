@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles, withWidth } from "@material-ui/core";
 
+import NumberFormat from "react-number-format";
 import TextFieldMaterialUi from "@material-ui/core/TextField";
 
 const styles = theme => ({
@@ -42,8 +43,35 @@ const styles = theme => ({
     "&:after": {
       borderBottomColor: "#7de6c6"
     }
+  },
+  inputText: {
+    color: "#acb1bd"
   }
 });
+
+const NumberFormatCustom = props => {
+  const { inputRef, onChange, ...other } = props;
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={inputRef}
+      onValueChange={values => {
+        onChange({
+          target: {
+            value: values.value
+          }
+        });
+      }}
+      thousandSeparator="."
+      decimalSeparator=","
+      prefix="R$ "
+      decimalScale={2}
+      fixedDecimalScale
+      allowNegative={false}
+    />
+  );
+};
 
 const handleChange = onHandleChange => event => {
   onHandleChange(event.target.value);
@@ -81,7 +109,8 @@ const TextField = ({
         underline:
           width === "xs" ? classes.cssUnderlineMobile : classes.cssUnderline,
         focused: width === "xs" ? classes.cssFocusedMobile : classes.cssFocused
-      }
+      },
+      inputComponent: NumberFormatCustom
     }}
   />
 );

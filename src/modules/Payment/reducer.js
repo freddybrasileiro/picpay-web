@@ -66,7 +66,7 @@ function paymentReducer(state = paymentInitialState, { type, payload }) {
     case ON_PAYMENT_VALUE_CHANGE:
       return {
         ...state,
-        paymentValue: payload ? parseInt(payload, 10) : 0
+        paymentValue: payload ? parseFloat(payload, 10) : 0
       };
     case DO_TRANSACTION:
       return { ...state, transactionStatus: {}, error: false };

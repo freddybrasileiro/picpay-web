@@ -57,8 +57,8 @@ const styles = () => ({
 const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
   let content;
   switch (screen) {
-    case DIALOG_SCREENS.PAYMENT:
-      content = <Payment />;
+    case DIALOG_SCREENS.RECEIPT:
+      content = <Receipt />;
       break;
     case DIALOG_SCREENS.REGISTER_CARD:
       content = <RegisterCard />;
@@ -67,7 +67,7 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
       content = <CreditCardList />;
       break;
     default:
-      content = <Receipt />;
+      content = <Payment />;
   }
 
   return (
@@ -87,9 +87,7 @@ const PaymentDialog = ({ classes, isOpen, screen, closeDialog, width }) => {
       >
         {width !== "xs" && (
           <React.Fragment>
-            <Typography variant="body1">
-              Pagamento para Nome Do Usuário
-            </Typography>
+            <Typography variant="body1">Pagamento</Typography>
             <IconButton
               aria-label="Close"
               className={classes.closeButton}
